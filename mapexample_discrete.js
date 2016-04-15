@@ -1,11 +1,20 @@
 $(function () {
 
-
+		var data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']),
+		// Some responsiveness
+        small = $('#container').width() < 400;
+        
+		//console.log(this.properties); 
+		 $.each(data, function (i) {
+        this.drilldown = this.properties['hc-key'];
+		});
+		//console.log(data); 
+		
+		//spacingBottom: 20
     // Instanciate the map
     $('#container').highcharts('Map', {
-        chart: {
-            spacingBottom: 20
-        },
+		
+		
         title : {
                 text : 'VOTER ID LAWS'
             },
@@ -32,6 +41,18 @@ $(function () {
                     pointFormat: '{point.name}: <b>{series.name}</b>'
                 }
 
+            },
+						series: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function () {
+												   //console.log(this); 
+													 //console.log(this.name); 
+                           location.href = this.name+"_statepage";  
+                        }
+                    }
+                }
             }
         },
 
