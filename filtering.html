@@ -87,6 +87,7 @@
 </div> 
 
 <div class="col-md-4" id='tableSection'>
+
 <table id="statistics" class="table table-condensed table-striped"></table>
 </div>
 <div class="col-md-4">
@@ -169,9 +170,14 @@ $( document ).ready(function(){
 	
 	// Load an entire worksheet.
 
+	var requests = {}
+	var queryString; 
+	
 	var myCallback = function (error, options, response) {
+	console.log("callback"); 
   if (!error) {
-		console.log(response); 
+		//Will need to investigate further. 
+		requests[queryString] = response;
 		for (var i = 0; i < response.rows.length; i++) {
 			console.log(response.rows[i].cellsArray[0]);
     //Do something
@@ -180,7 +186,10 @@ $( document ).ready(function(){
       Parse response.data, loop through response.rows, or do something with
       response.html.
     */
-  }
+  }else{
+		console.log("NO!"); 
+		console.log(error);
+	}
 };
 
 	/*$('#statistics').sheetrock({
@@ -198,6 +207,11 @@ $( document ).ready(function(){
 
 	//console.log(items); 
 
+	$('#statistics').sheetrock({
+					url: mySpreadsheet,
+					query: 'select *',
+					callback: myCallback
+				});
 	
 	$('#apply').click(function(){
 	
@@ -331,6 +345,8 @@ $( document ).ready(function(){
 				queryString = queryString + ")"; 
 			}
 			
+			queryString = queryString +" or A = 'State'"; 
+			
 			console.log(queryString); 
 			$('#statistics').sheetrock({
 					url: mySpreadsheet,
@@ -339,13 +355,21 @@ $( document ).ready(function(){
 				});
 		}
 	});
-}); 
-
-$('#clear').click(function(){
+	
+	$('#clear').click(function(){
 	$("#statistics").remove(); 
 	$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped"></table>');
 	$('input:checkbox').prop('checked', false);
+	
+		$('#statistics').sheetrock({
+					url: mySpreadsheet,
+					query: "select * where A = 'State'",
+					callback: myCallback 
+				});
 }); 
+
+}); 
+
 </script>
 </body>
 </html>
