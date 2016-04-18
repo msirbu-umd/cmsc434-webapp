@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+
+
+<script src="jquery.js" ></script>
+<script src="bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.0.1/dist/sheetrock.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="row">
+  <div class="col-md-4">
+	<div class="page-header">
+		<h4>Voter ID Requirements</h4>
+	</div>
+
+				<div class="checkbox">
+						<label><input type="checkbox" value="No document required" name="voteID">No document required</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="ID requested; photo not required" name="voteID">ID requested; photo not required</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="Photo ID requested" name="voteID">Photo ID requested</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="Strict Non-Photo ID" name="voteID">Strict Non-Photo ID</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="Strict Photo ID" name="voteID">Strict Photo ID</label>
+				</div>
+
+<div class="page-header">
+  <h4>Number of Early Voting Days</h4>
+</div>
+
+				<div class="checkbox">
+						<label><input type="checkbox" value="None" name="early">None</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="Varies by County" name="early">Varies by County</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="< 1 week " name="early"> less than 1 week </label>
+				</div>
+				
+				<div class="checkbox">
+						<label><input type="checkbox" value="1 to < 2 weeks" name="early"> 1 to less than 2 weeks </label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="2 to < 3 weeks" name="early"> 2 to less than 3 weeks</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value=">= 3 weeks" name="early"> greater than or equal to 3 weeks</label>
+				</div>
+
+<div class="page-header">
+  <h4>Party Control of State Legislature</h4>
+</div>
+	<label class="checkbox-inline"><input type="checkbox" value="Republican" name="state">Republican</label>
+  <label class="checkbox-inline"><input type="checkbox" value="Democrat" name="state">Democrat</label>
+
+<div class="page-header">
+  <h4>Same Day Voting Registration</h4>
+</div>
+<div>
+	<label class="checkbox-inline"><input type="checkbox" value="Yes" name="same">Yes</label>
+  <label class="checkbox-inline"><input type="checkbox" value="No" name="same">No</label>
+</div>
+
+<div>
+</div>
+
+<div class="text-center">
+<button id="apply" type="button" class="btn btn-primary">Apply Filters</button>
+<button id="clear" type="button" class="btn btn-secondary">Clear Filters</button>
+</div>
+
+
+
+</div> 
+
+<div class="col-md-4" id='tableSection'>
+<table id="statistics" class="table table-condensed table-striped"></table>
+</div>
+<div class="col-md-4">
+	<!--
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+				<div class="checkbox">
+						<label><input type="checkbox" value="1" name="c1">Option 1</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="2" name="c1">Option 2</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="3" name="c1">Option 3</label>
+				</div>
+			</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+		
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+				<div class="checkbox">
+						<label><input type="checkbox" value="4" name="c2">Option 1</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="5" name="c2">Option 2</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="6" name="c2">Option 3</label>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+				<div class="checkbox">
+						<label><input type="checkbox" value="7" name="c3">Option 1</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="8" name="c3">Option 2</label>
+				</div>
+				<div class="checkbox">
+						<label><input type="checkbox" value="9" name="c3">Option 3</label>
+				</div>
+    </div>
+  </div>
+</div>
+</div>-->
+
+<script>
+$( document ).ready(function(){
+
+  var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1WqBnhUlxQxA_mdJD3UFuV0Lqo5ZTKiAKZT9UhYJFoIc/edit#gid=0';
+	//var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1qT1LyvoAcb0HTsi2rHBltBVpUBumAUzT__rhMvrz5Rk/edit#gid=0';
+	
+	// Load an entire worksheet.
+
+	var myCallback = function (error, options, response) {
+  if (!error) {
+		console.log(response); 
+		for (var i = 0; i < response.rows.length; i++) {
+			console.log(response.rows[i].cellsArray[0]);
+    //Do something
+	}
+    /*
+      Parse response.data, loop through response.rows, or do something with
+      response.html.
+    */
+  }
+};
+
+	/*$('#statistics').sheetrock({
+					url: mySpreadsheet,
+					query: "select *",
+					callback: myCallback
+				});*/
+
+	//console.log(g); 
+	
+		/*
+	$('table tbody tr td').each( function(){
+		 console.log($(this).text());      
+	});*/
+
+	//console.log(items); 
+
+	
+	$('#apply').click(function(){
+	
+		$("#statistics").remove(); 
+		
+		$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped"></table>');
+
+		var voteIDArr = []; 
+		var earlyArr = []; 
+		var stateArr = []; 
+		var sameArr = []; 
+		$("input:checkbox[name='voteID']:checked").each(function(){
+			voteIDArr.push($(this).val());
+		}); 
+		$("input:checkbox[name='early']:checked").each(function(){
+			earlyArr.push($(this).val());
+		}); 
+		$("input:checkbox[name='state']:checked").each(function(){
+			stateArr.push($(this).val());
+		}); 
+		$("input:checkbox[name='same']:checked").each(function(){
+			sameArr.push($(this).val());
+		}); 
+		console.log(voteIDArr); 
+		console.log(earlyArr);
+		console.log(stateArr); 
+		console.log(sameArr);		
+		
+		if(voteIDArr.length == 0 && earlyArr == 0 && stateArr.length == 0 &&
+		   sameArr.length == 0){
+			 
+			 //$('#statistics tr').detach(); 
+			 /*$('#statistics').sheetrock({
+					url: mySpreadsheet,
+					query: "Select * where C='haha'",
+					callback: myCallback
+				});*/
+	}else{
+	
+			queryString = "select * where"; 
+			var before = false; 
+			
+			if(voteIDArr.length > 0 && before){
+				queryString = queryString + " and ("; 
+			}else if(voteIDArr.length > 0){
+				queryString = queryString + " ("; 
+			}
+			
+			if(voteIDArr.length > 0){
+				before = true; 
+				
+				for(i = 0; i < voteIDArr.length; i++){
+					if(i == 0){
+						queryString = queryString + "C = \'" + voteIDArr[i] + "\'";
+					}else{
+						queryString = queryString + " or C = \'" + voteIDArr[i] + "\'";
+					}
+				}
+			}
+			
+			if(voteIDArr.length > 0){
+				queryString = queryString + ")"; 
+			}
+			
+			if(earlyArr.length > 0 && before){
+				queryString = queryString + " and ("; 
+			}else if(earlyArr.length > 0){
+				queryString = queryString + " ("; 
+			}
+			
+			if(earlyArr.length > 0){
+			
+				before = true; 
+				
+				for(i = 0; i < earlyArr.length; i++){
+					if(i == 0){
+						queryString = queryString + "D = \'" + earlyArr[i] + "\'";
+					}else{
+						queryString = queryString + " or D = \'" + earlyArr[i] + "\'";
+					}
+				}
+			}
+			
+			if(earlyArr.length > 0){
+				queryString = queryString + ")"; 
+			}
+			
+			if(stateArr.length > 0 && before){
+				queryString = queryString + " and ("; 
+			}else if(stateArr.length > 0){
+				queryString = queryString + " ("; 
+			}
+			
+			if(stateArr.length > 0){
+			
+				before = true; 
+				
+				for(i = 0; i < stateArr.length; i++){
+					if(i == 0){
+						queryString = queryString + "E = \'" + stateArr[i] + "\'";
+					}else{
+						queryString = queryString + " or E = \'" + stateArr[i] + "\'";
+					}
+				}
+			}
+			
+			if(stateArr.length > 0){
+				queryString = queryString + ")"; 
+			}
+		
+			if(sameArr.length > 0 && before){
+				queryString = queryString + " and ("; 
+			}else if(sameArr.length > 0){
+				queryString = queryString + " ("; 
+			}
+			
+			if(sameArr.length > 0){
+			
+				before = true; 
+				
+				for(i = 0; i < sameArr.length; i++){
+					if(i == 0){
+						queryString = queryString + "F = \'" + sameArr[i] + "\'";
+					}else{
+						queryString = queryString + " or F = \'" + sameArr[i] + "\'";
+					}
+				}
+			}
+			
+			if(sameArr.length > 0){
+				queryString = queryString + ")"; 
+			}
+			
+			console.log(queryString); 
+			$('#statistics').sheetrock({
+					url: mySpreadsheet,
+					query: queryString,
+					callback: myCallback
+				});
+		}
+	});
+}); 
+
+$('#clear').click(function(){
+	alert("YAS!");
+	$("#statistics").remove(); 
+	$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped"></table>');
+	$('input:checkbox').prop('checked', false);
+}); 
+</script>
+</body>
+</html>
