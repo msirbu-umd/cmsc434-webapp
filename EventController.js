@@ -15,14 +15,22 @@ eventsApp.controller('EventController',
             stateImage: 'img/md-map-state-shape.png',
             circle1: 'img/Circle 1.png',
             circle11: 'img/Circle 1-1.png',
-            circle2: '../cmsc434-app/img/Circle 1.png',
-            circle3: '../cmsc434-app/img/Circle 1.png',
-            circle4: '../stateinfopage/app/img/Circle 1.png',
-            circle5: '../stateinfopage/app/img/Circle 1.png',
+            circle2: 'img/Circle 2.png',
+            circle21: 'img/Circle 2-1.png',
+            circle3: 'img/Circle 3.png',
+            circle31: 'img/Circle 3-1.png',
+            circle4: 'img/Circle 4.png',
+            circle41: 'img/Circle 4-1.png',
             events: [
                 {
-                    name: 'Next election',
-                    date: 'April 26th'
+                    name: 'ACLU',
+                    link: 'http://www.aclu-md.org/issues/voting_rights_and_elections'
+
+                },
+                {
+                    name: 'Maryland PIRG Students',
+                    link: 'http://marylandpirgstudents.org/campaigns/md/new-voters-project'
+
                 }
             ]
         }

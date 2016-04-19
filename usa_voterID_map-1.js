@@ -52,7 +52,7 @@ $(function () {
                         click: function () {
 												   //console.log(this); 
 													 //console.log(this.name); 
-                           location.href = this.name+"_statepage.html";
+                           location.href = this.name+"_statepage";  
                         }
                     }
                 }
