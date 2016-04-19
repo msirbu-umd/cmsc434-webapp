@@ -10,86 +10,94 @@
 <div class="container">
 
     <!--<div class="navbar" style="">-->
-        <!--<div class="navbar-inner">-->
-            <!--<ul class="nav">-->
-                <!--<li class="dropdown">-->
-                    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Legislation-->
-                        <!--<span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li><a href="#">Page 1-1</a></li>-->
-                        <!--<li><a href="#">Page 1-2</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li class="dropdown">-->
-                    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">News-->
-                        <!--<span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li><a href="#">Page 2-1</a></li>-->
-                        <!--<li><a href="#">Page 2-2</a></li>-->
-                        <!--<li><a href="#">Page 3-3</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li class="dropdown">-->
-                    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Organization-->
-                        <!--<span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li><a href="#">Page 3-1</a></li>-->
-                        <!--<li><a href="#">Page 3-2</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li class="dropdown">-->
-                    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Research-->
-                        <!--<span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li><a href="#">Page 4-1</a></li>-->
-                        <!--<li><a href="#">Page 4-2</a></li>-->
-                        <!--<li><a href="#">Page 4-3</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li class="dropdown">-->
-                    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Get Involved-->
-                        <!--<span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li><a href="#">Page 5-1</a></li>-->
-                        <!--<li><a href="#">Page 5-2</a></li>-->
-                        <!--<li><a href="#">Page 5-3</a></li>-->
-                        <!--<li><a href="#">Page 5-4</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--</li>-->
-                <!--<li class="dropdown">-->
-                    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">About-->
-                        <!--<span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li><a href="#">Page 6-1</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
+    <!--<div class="navbar-inner">-->
+    <!--<ul class="nav">-->
+    <!--<li class="dropdown">-->
+    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Legislation-->
+    <!--<span class="caret"></span></a>-->
+    <!--<ul class="dropdown-menu">-->
+    <!--<li><a href="#">Page 1-1</a></li>-->
+    <!--<li><a href="#">Page 1-2</a></li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--<li class="dropdown">-->
+    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">News-->
+    <!--<span class="caret"></span></a>-->
+    <!--<ul class="dropdown-menu">-->
+    <!--<li><a href="#">Page 2-1</a></li>-->
+    <!--<li><a href="#">Page 2-2</a></li>-->
+    <!--<li><a href="#">Page 3-3</a></li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--<li class="dropdown">-->
+    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Organization-->
+    <!--<span class="caret"></span></a>-->
+    <!--<ul class="dropdown-menu">-->
+    <!--<li><a href="#">Page 3-1</a></li>-->
+    <!--<li><a href="#">Page 3-2</a></li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--<li class="dropdown">-->
+    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Research-->
+    <!--<span class="caret"></span></a>-->
+    <!--<ul class="dropdown-menu">-->
+    <!--<li><a href="#">Page 4-1</a></li>-->
+    <!--<li><a href="#">Page 4-2</a></li>-->
+    <!--<li><a href="#">Page 4-3</a></li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--<li class="dropdown">-->
+    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Get Involved-->
+    <!--<span class="caret"></span></a>-->
+    <!--<ul class="dropdown-menu">-->
+    <!--<li><a href="#">Page 5-1</a></li>-->
+    <!--<li><a href="#">Page 5-2</a></li>-->
+    <!--<li><a href="#">Page 5-3</a></li>-->
+    <!--<li><a href="#">Page 5-4</a></li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--</li>-->
+    <!--<li class="dropdown">-->
+    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">About-->
+    <!--<span class="caret"></span></a>-->
+    <!--<ul class="dropdown-menu">-->
+    <!--<li><a href="#">Page 6-1</a></li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
     <!--</div>-->
 
     <div id="content" ng-controller="EventController" style="padding-left:20px; padding-right:20px">
 
 
 
-        <div class="row">
-            <div id="cf" class="span3" style="padding-right: 200px">
-                <img class="bottom" height="250" width="250"ng-src="{{stateinfo.circle11}}" alt="{{stateinfo.name}}" />
+        <div class="row" style="min-height: 250px; padding-top: 50px" id="cf">
+            <div class="span3" style="position: relative; padding-right: 200px">
+                <img class="bottom" height="250" width="250" ng-src="{{stateinfo.circle11}}" alt="{{stateinfo.name}}" />
                 <img class="top" height="250" width="250" ng-src="{{stateinfo.circle1}}" alt="{{stateinfo.name}}" />
             </div>
-            <div class="span3">
-                <img ng-src="{{stateinfo.circle1}}" alt="{{stateinfo.name}}" />
+            <div class="span3" style="position: relative; padding-right: 200px">
+                <img class="bottom" height="250" width="250" ng-src="{{stateinfo.circle21}}" alt="{{stateinfo.name}}" />
+                <img class="top" height="250" width="250" ng-src="{{stateinfo.circle2}}" alt="{{stateinfo.name}}" />
             </div>
         </div>
 
-        <img ng-src="{{stateinfo.stateImage}}" alt="{{stateinfo.name}}" style="padding: 50px"/>
-
-        <div class="row" >
-            <div class="span3" style="padding-right: 100px">
-                <img  height="250" width="250" ng-src="{{stateinfo.circle1}}" alt="{{stateinfo.name}}" />
+        <div class="row">
+            <div class="span12" style="position: relative;">
+                <img ng-src="{{stateinfo.stateImage}}" alt="{{stateinfo.name}}" />
             </div>
-            <div class="span3">
-                <img  height="250" width="250" ng-src="{{stateinfo.circle1}}" alt="{{stateinfo.name}}" />
+
+        </div>
+
+        <div class="row" style="min-height: 250px; padding-top: 20px" id="cf">
+            <div class="span3" style="position: relative; padding-right: 200px">
+                <img class="bottom" height="250" width="250" ng-src="{{stateinfo.circle31}}" alt="{{stateinfo.name}}" />
+                <img class="top" height="250" width="250" ng-src="{{stateinfo.circle3}}" alt="{{stateinfo.name}}" />
+            </div>
+            <div class="span3" style="position: relative; padding-right: 200px">
+                <img class="bottom" height="250" width="250" ng-src="{{stateinfo.circle41}}" alt="{{stateinfo.name}}" />
+                <img class="top" height="250" width="250" ng-src="{{stateinfo.circle4}}" alt="{{stateinfo.name}}" />
             </div>
         </div>
 
@@ -97,13 +105,13 @@
 
         <hr />
 
-        <h3>More details:</h3>
+        <h3>More links:</h3>
         <ul class="thumbnails">
             <li ng-repeat="event in stateinfo.events">
                 <div class="row session">
                     <div class="well span9">
                         <h4 class="well-title">{{event.name}}</h4>
-                        <span>Date: {{event.date}}</span><br/>
+                        <a>{{event.link}}</a><br/>
                     </div>
                 </div>
             </li>
@@ -133,4 +141,3 @@
 
 </body>
 </html>
-
