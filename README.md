@@ -1,6 +1,24 @@
 # cmsc434-webapp
 
-## Set-up
+## Running code
+
+[1] Download zip and launch a local server in the main directory of this repo (e.g. the one with all of the files such as maplanding.html) <br />
+[1b] If you do not have a local server, you can Download Node.js and follow the commands in set-up (below) <br />
+[2] To launch the website point your browser to http://localhost:8080/maplanding <br />
+[3] You can get to the state page by either clicking on Maryland on the main map or by pointing your browser to http://localhost:8080/Maryland_statepage.html <br />
+[4] To get to the filtering page, point your browser to http://localhost:8080/filtering.html
+
+## Libraries used
+
+We are using a number of libraries for this implementation. This includes: 
+
+[1] <a href="https://jquery.com/"> jQuery </a> <br />
+[2] <a href="https://angularjs.org/"> AngularJs </a> <br />
+[3] <a href="https://getbootstrap.com/"> Bootstrap </a> <br />
+[4] <a href="https://chriszarate.github.io/sheetrock/"> Sheetrock </a> <br />
+[5] <a href="http://www.highcharts.com/products/highmaps"> HighMaps.js </a> <br />
+
+## Set-up 
 
 [1] Clone this repo. 
 [2] Download Node.js (https://nodejs.org/en/download/). This should come with npm. <br />
