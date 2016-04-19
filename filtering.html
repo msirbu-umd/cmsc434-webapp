@@ -86,8 +86,7 @@
 
 </div> 
 
-<div class="col-md-4" id='tableSection'>
-
+<div class="col-md-4" id='tableSection' style="padding-top: 30pt;">
 <table id="statistics" class="table table-condensed table-striped"></table>
 </div>
 <div class="col-md-4">
@@ -363,7 +362,7 @@ $( document ).ready(function(){
 	
 		$('#statistics').sheetrock({
 					url: mySpreadsheet,
-					query: "select * where A = 'State'",
+					query: "select * where A <> 'State2'",
 					callback: myCallback 
 				});
 }); 
