@@ -73,7 +73,7 @@ $(function () {
             name: 'ID requested; photo not required',
 						color: '#8EFBBF',
             data: $.map(['AK', 'WA', 'MT', 'UT', 'CO', 'OK', 'MO', 'AR', 'KY',
-						'NC', 'SC', 'DE', 'NH', 'CT'], function (code) {
+						'NC', 'SC', 'DE', 'NH', 'CT', 'RI'], function (code) {
                 return { code: code };
             })
         }, {
