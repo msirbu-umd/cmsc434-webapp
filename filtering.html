@@ -27,41 +27,41 @@
 	</div>
 
 				<div class="checkbox">
-						<label><input type="checkbox" value="NDR" name="voteID">No document required</label>
+						<label><input type="checkbox" value="NDR" name="voteID">No document required (NDR)</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="IRPNR" name="voteID">ID requested; photo not required</label>
+						<label><input type="checkbox" value="IRPNR" name="voteID">ID requested; photo not required (IRPNR)</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="PIR" name="voteID">Photo ID requested</label>
+						<label><input type="checkbox" value="PIR" name="voteID">Photo ID requested (PIR)</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="SNP" name="voteID">Strict Non-Photo ID</label>
+						<label><input type="checkbox" value="SNP" name="voteID">Strict Non-Photo ID (SNP)</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="SP" name="voteID">Strict Photo ID</label>
+						<label><input type="checkbox" value="SP" name="voteID">Strict Photo ID (SP)</label>
 				</div>
 
 <div class="page-header">
-  <h4>Early Voting & Absentee Voting (AV) </h4>
+  <h4>Early Voting (EV) & Absentee Voting (AV) </h4>
 </div>
 
 				<div class="checkbox">
-						<label><input type="checkbox" value="NER" name="early">NO EV and reason required for AV</label>
+						<label><input type="checkbox" value="NER" name="early">NO EV and reason required for AV (NER)</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="ER" name="early">EV and reason required for AV</label>
+						<label><input type="checkbox" value="ER" name="early">EV and reason required for AV (ER)</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="ENR" name="early">EV and NO reason required for AV</label>
+						<label><input type="checkbox" value="ENR" name="early">EV and NO reason required for AV (ENR)</label>
 				</div>
 				
 				<div class="checkbox">
-						<label><input type="checkbox" value="AMV" name="early"> All-mail voting</label>
+						<label><input type="checkbox" value="AMV" name="early"> All-mail voting (AMV)</label>
 				</div>
 
 <div class="page-header">
-  <h4>Party Control of State Legislature</h4>
+  <h4>Party Control of State Legislature (PCSL)</h4>
 </div>
 
 	<div class="checkbox">
@@ -99,7 +99,7 @@
 </div>
 
 <div class="text-center">
-<button id="apply" type="button" class="btn btn-primary">Apply Filters</button>
+<!--<button id="apply" type="button" class="btn btn-primary">Apply Filters</button>-->
 <button id="clear" type="button" class="btn btn-secondary">Clear Filters</button>
 </div>
 
@@ -125,7 +125,7 @@ $( document ).ready(function(){
 	var requests = {}
 	var queryString = "init"; 
 	var stateData; 
-	var title = "No Filtering"; 
+	var title = "All States (No Filtering)"; 
 	
 	var myCallback = function (error, options, response) {
 		if (!error) {
@@ -137,6 +137,8 @@ $( document ).ready(function(){
 		}else{
 			console.log("NO!"); 
 			console.log(error);
+			console.log(response);
+			requests[queryString] = [];
 		}
 		
 		stateData = requests[queryString]
@@ -162,8 +164,8 @@ $( document ).ready(function(){
 	}); */
 	
 	
-	$('#apply').click(function(){
-	
+	//$('#apply').click(function(){
+	$('input:checkbox').click(function(){
 		$("#statistics").remove(); 
 		
 		$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped" hidden></table>');
@@ -190,15 +192,16 @@ $( document ).ready(function(){
 			swingArr.push($(this).val());
 		}); 
 		
-		console.log(voteIDArr.length); 
-		console.log(earlyArr.length);
-		console.log(stateArr.length); 
-		console.log(sameArr.length);		
-		console.log(swingArr.length); 
+		console.log(voteIDArr); 
+		console.log(earlyArr);
+		console.log(stateArr); 
+		console.log(sameArr);		
+		console.log(swingArr); 
 		
 		if(voteIDArr.length == 0 && earlyArr == 0 && stateArr.length == 0 &&
 		   sameArr.length == 0 && swingArr.length == 0){
-			 createMap(requests["init"]);
+			 title = "All States (No Filtering)";
+			 createMap(requests["init"], title);
 			 
 	  }else{
 	
@@ -209,9 +212,10 @@ $( document ).ready(function(){
 			
 			if(voteIDArr.length > 0 && before){
 				queryString = queryString + " and ("; 
+				title = title + " and \'ID req\' = ("; 
 			}else if(voteIDArr.length > 0){
 				queryString = queryString + " (";
-				title =
+				title = title + " \'ID req\' = ("; 
 			}
 			
 			if(voteIDArr.length > 0){
@@ -220,20 +224,25 @@ $( document ).ready(function(){
 				for(i = 0; i < voteIDArr.length; i++){
 					if(i == 0){
 						queryString = queryString + "C = \'" + voteIDArr[i] + "\'";
+						title = title + voteIDArr[i]; 
 					}else{
 						queryString = queryString + " or C = \'" + voteIDArr[i] + "\'";
+						title = title + " or " + voteIDArr[i]; 
 					}
 				}
 			}
 			
 			if(voteIDArr.length > 0){
 				queryString = queryString + ")"; 
+				title = title + ")"; 
 			}
 			
 			if(earlyArr.length > 0 && before){
 				queryString = queryString + " and ("; 
+				title = title + " and \'EV & AV\' = ("; 
 			}else if(earlyArr.length > 0){
 				queryString = queryString + " ("; 
+				title = title + " \'EV & AV\' = ("; 
 			}
 			
 			if(earlyArr.length > 0){
@@ -243,20 +252,25 @@ $( document ).ready(function(){
 				for(i = 0; i < earlyArr.length; i++){
 					if(i == 0){
 						queryString = queryString + "D = \'" + earlyArr[i] + "\'";
+						title = title + earlyArr[i]; 
 					}else{
 						queryString = queryString + " or D = \'" + earlyArr[i] + "\'";
+						title = title + " or " + earlyArr[i]; 
 					}
 				}
 			}
 			
 			if(earlyArr.length > 0){
 				queryString = queryString + ")"; 
+				title = title + ")"; 
 			}
 			
 			if(stateArr.length > 0 && before){
 				queryString = queryString + " and ("; 
+				title = title + " and \'PCSL\' = ("; 
 			}else if(stateArr.length > 0){
-				queryString = queryString + " ("; 
+				queryString = queryString + " (";
+				title = title + " \'PCSL\' = ("; 				
 			}
 			
 			if(stateArr.length > 0){
@@ -266,20 +280,25 @@ $( document ).ready(function(){
 				for(i = 0; i < stateArr.length; i++){
 					if(i == 0){
 						queryString = queryString + "E = \'" + stateArr[i] + "\'";
+						title = title + stateArr[i]; 
 					}else{
 						queryString = queryString + " or E = \'" + stateArr[i] + "\'";
+						title = title + " or " + stateArr[i]; 
 					}
 				}
 			}
 			
 			if(stateArr.length > 0){
-				queryString = queryString + ")"; 
+				queryString = queryString + ")";
+				title = title + ")"; 				
 			}
 		
 			if(sameArr.length > 0 && before){
 				queryString = queryString + " and ("; 
+				title = title + " and \'Same Day\' = ("; 
 			}else if(sameArr.length > 0){
 				queryString = queryString + " ("; 
+				title = title + " \'Same Day\' = ("; 	
 			}
 			
 			if(sameArr.length > 0){
@@ -289,20 +308,25 @@ $( document ).ready(function(){
 				for(i = 0; i < sameArr.length; i++){
 					if(i == 0){
 						queryString = queryString + "F = \'" + sameArr[i] + "\'";
+						title = title + sameArr[i]; 
 					}else{
 						queryString = queryString + " or F = \'" + sameArr[i] + "\'";
+						title = title + " or " + sameArr[i]; 
 					}
 				}
 			}
 			
 			if(sameArr.length > 0){
 				queryString = queryString + ")"; 
+				title = title + ")"; 
 			}
 			
 			if(swingArr.length > 0 && before){
 				queryString = queryString + " and ("; 
+				title = title + " and \'Swing State\' = ("; 	
 			}else if(swingArr.length > 0){
 				queryString = queryString + " ("; 
+				title = title + " \'Swing State\' = ("; 	
 			}
 			
 			if(swingArr.length > 0){
@@ -312,19 +336,22 @@ $( document ).ready(function(){
 				for(i = 0; i < swingArr.length; i++){
 					if(i == 0){
 						queryString = queryString + "G = \'" + swingArr[i] + "\'";
+						title = title + swingArr[i]; 
 					}else{
 						queryString = queryString + " or G = \'" + swingArr[i] + "\'";
+						title = title + " or " + swingArr[i]; 
 					}
 				}
 			}
 			
 			if(swingArr.length > 0){
 				queryString = queryString + ")"; 
+				title = title + ")"; 
 			}
 			
 			//queryString = queryString +" or A = 'State'"; 
 			
-			//console.log(queryString); 
+			console.log(queryString); 
 			
 			if(queryString in requests){
 				createMap(requests[queryString], title); 
@@ -345,8 +372,8 @@ $('#clear').click(function(){
 	$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped" hidden></table>');
 	
 	$('input:checkbox').prop('checked', false);
-	createMap(requests["init"], "No Filtering");
-	//$('#container').highcharts().setTitle({text: 'YEAH'})
+	title = "All States (No Filtering)";
+	createMap(requests["init"], title);
 	
 }); 
 
