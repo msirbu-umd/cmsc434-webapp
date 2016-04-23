@@ -9,6 +9,12 @@
 <script src="jquery.js" ></script>
 <script src="bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.0.1/dist/sheetrock.min.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+<script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<script src="http://code.highcharts.com/mapdata/countries/us/us-tx-all.js"></script>
 
 </head>
 
@@ -21,57 +27,72 @@
 	</div>
 
 				<div class="checkbox">
-						<label><input type="checkbox" value="No document required" name="voteID">No document required</label>
+						<label><input type="checkbox" value="NDR" name="voteID">No document required</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="ID requested; photo not required" name="voteID">ID requested; photo not required</label>
+						<label><input type="checkbox" value="IRPNR" name="voteID">ID requested; photo not required</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="Photo ID requested" name="voteID">Photo ID requested</label>
+						<label><input type="checkbox" value="PIR" name="voteID">Photo ID requested</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="Strict Non-Photo ID" name="voteID">Strict Non-Photo ID</label>
+						<label><input type="checkbox" value="SNP" name="voteID">Strict Non-Photo ID</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="Strict Photo ID" name="voteID">Strict Photo ID</label>
+						<label><input type="checkbox" value="SP" name="voteID">Strict Photo ID</label>
 				</div>
 
 <div class="page-header">
-  <h4>Number of Early Voting Days</h4>
+  <h4>Early Voting & Absentee Voting (AV) </h4>
 </div>
 
 				<div class="checkbox">
-						<label><input type="checkbox" value="None" name="early">None</label>
+						<label><input type="checkbox" value="NER" name="early">NO EV and reason required for AV</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="Varies by County" name="early">Varies by County</label>
+						<label><input type="checkbox" value="ER" name="early">EV and reason required for AV</label>
 				</div>
 				<div class="checkbox">
-						<label><input type="checkbox" value="< 1 week " name="early"> less than 1 week </label>
+						<label><input type="checkbox" value="ENR" name="early">EV and NO reason required for AV</label>
 				</div>
 				
 				<div class="checkbox">
-						<label><input type="checkbox" value="1 to < 2 weeks" name="early"> 1 to less than 2 weeks </label>
-				</div>
-				<div class="checkbox">
-						<label><input type="checkbox" value="2 to < 3 weeks" name="early"> 2 to less than 3 weeks</label>
-				</div>
-				<div class="checkbox">
-						<label><input type="checkbox" value=">= 3 weeks" name="early"> greater than or equal to 3 weeks</label>
+						<label><input type="checkbox" value="AMV" name="early"> All-mail voting</label>
 				</div>
 
 <div class="page-header">
   <h4>Party Control of State Legislature</h4>
 </div>
-	<label class="checkbox-inline"><input type="checkbox" value="Republican" name="state">Republican</label>
-  <label class="checkbox-inline"><input type="checkbox" value="Democrat" name="state">Democrat</label>
 
+	<div class="checkbox">
+		<label><input type="checkbox" value="Republican" name="state">Republican</label>
+	</div>
+  <div class="checkbox">
+		<label><input type="checkbox" value="Democrat" name="state">Democrat</label>
+	</div>
+	<div class="checkbox">
+		<label><input type="checkbox" value="Split" name="state">Split</label>
+	</div>
+	<div class="checkbox">
+		<label><input type="checkbox" value="Non-partisan" name="state">Non-partisan</label>
+	</div>
+	
 <div class="page-header">
-  <h4>Same Day Voting Registration</h4>
+	<h4>Same Day Voting Registration</h4>
 </div>
+
 <div>
 	<label class="checkbox-inline"><input type="checkbox" value="Yes" name="same">Yes</label>
   <label class="checkbox-inline"><input type="checkbox" value="No" name="same">No</label>
+</div>
+
+<div class="page-header">
+	<h4>Swing State</h4>
+</div>
+
+<div>
+	<label class="checkbox-inline"><input type="checkbox" value="Yes" name="swing">Yes</label>
+  <label class="checkbox-inline"><input type="checkbox" value="No" name="swing">No</label>
 </div>
 
 <div>
@@ -86,142 +107,73 @@
 
 </div> 
 
-<div class="col-md-4" id='tableSection' style="padding-top: 30pt;">
-<table id="statistics" class="table table-condensed table-striped"></table>
+<div class="col-md-8" id='tableSection' style="padding-top: 30pt;">
+<table id="statistics" class="table table-condensed table-striped" hidden></table>
+<div id="container" style="height: 700px; min-width: 310px; max-width: 800px; margin: 0 auto">
 </div>
-<div class="col-md-4">
-	<!--
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-				<div class="checkbox">
-						<label><input type="checkbox" value="1" name="c1">Option 1</label>
-				</div>
-				<div class="checkbox">
-						<label><input type="checkbox" value="2" name="c1">Option 2</label>
-				</div>
-				<div class="checkbox">
-						<label><input type="checkbox" value="3" name="c1">Option 3</label>
-				</div>
-			</div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-		
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-				<div class="checkbox">
-						<label><input type="checkbox" value="4" name="c2">Option 1</label>
-				</div>
-				<div class="checkbox">
-						<label><input type="checkbox" value="5" name="c2">Option 2</label>
-				</div>
-				<div class="checkbox">
-						<label><input type="checkbox" value="6" name="c2">Option 3</label>
-				</div>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-				<div class="checkbox">
-						<label><input type="checkbox" value="7" name="c3">Option 1</label>
-				</div>
-				<div class="checkbox">
-						<label><input type="checkbox" value="8" name="c3">Option 2</label>
-				</div>
-				<div class="checkbox">
-						<label><input type="checkbox" value="9" name="c3">Option 3</label>
-				</div>
-    </div>
-  </div>
 </div>
-</div>-->
-
+<div class="col-md-8">
+	
 <script>
 $( document ).ready(function(){
 
-  var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1WqBnhUlxQxA_mdJD3UFuV0Lqo5ZTKiAKZT9UhYJFoIc/edit#gid=0';
+  var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1U9Yj8hcrI8AFKB46iS7eSN_MAuwhQaLaPQCFWRGqlU0/edit#gid=0';
 	//var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1qT1LyvoAcb0HTsi2rHBltBVpUBumAUzT__rhMvrz5Rk/edit#gid=0';
 	
 	// Load an entire worksheet.
 
 	var requests = {}
-	var queryString; 
+	var queryString = "init"; 
+	var stateData; 
+	var title = "No Filtering"; 
 	
 	var myCallback = function (error, options, response) {
-	console.log("callback"); 
-  if (!error) {
-		//Will need to investigate further. 
-		requests[queryString] = response;
-		for (var i = 0; i < response.rows.length; i++) {
-			console.log(response.rows[i].cellsArray[0]);
-    //Do something
-	}
-    /*
-      Parse response.data, loop through response.rows, or do something with
-      response.html.
-    */
-  }else{
-		console.log("NO!"); 
-		console.log(error);
-	}
-};
+		if (!error) {
+			//Will need to investigate further. 
+			requests[queryString] = [];
+			for (var i = 0; i < response.rows.length; i++) {
+				requests[queryString].push(response.rows[i].cellsArray[0]); 
+			}
+		}else{
+			console.log("NO!"); 
+			console.log(error);
+		}
+		
+		stateData = requests[queryString]
+		console.log(stateData); 
+		createMap(stateData, title); 
+	};
 
-	/*$('#statistics').sheetrock({
-					url: mySpreadsheet,
-					query: "select *",
-					callback: myCallback
-				});*/
-
-	//console.log(g); 
-	
-		/*
-	$('table tbody tr td').each( function(){
-		 console.log($(this).text());      
-	});*/
-
-	//console.log(items); 
-
+	//Get the initial data
 	$('#statistics').sheetrock({
 					url: mySpreadsheet,
-					query: 'select *',
+					query: 'select * where A <> "State"',
 					callback: myCallback
-				});
+	});
+	
+	
+	
+	/*$('input:checkbox').click(function(){
+		if($(this).prop('checked')){
+			console.log($(this).val());
+		}else{
+			console.log("SUCK IT!"); 
+		}
+	}); */
+	
 	
 	$('#apply').click(function(){
 	
 		$("#statistics").remove(); 
 		
-		$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped"></table>');
+		$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped" hidden></table>');
 
 		var voteIDArr = []; 
 		var earlyArr = []; 
 		var stateArr = []; 
 		var sameArr = []; 
+		var swingArr = [];
+		
 		$("input:checkbox[name='voteID']:checked").each(function(){
 			voteIDArr.push($(this).val());
 		}); 
@@ -234,29 +186,32 @@ $( document ).ready(function(){
 		$("input:checkbox[name='same']:checked").each(function(){
 			sameArr.push($(this).val());
 		}); 
-		console.log(voteIDArr); 
-		console.log(earlyArr);
-		console.log(stateArr); 
-		console.log(sameArr);		
+		$("input:checkbox[name='swing']:checked").each(function(){
+			swingArr.push($(this).val());
+		}); 
+		
+		console.log(voteIDArr.length); 
+		console.log(earlyArr.length);
+		console.log(stateArr.length); 
+		console.log(sameArr.length);		
+		console.log(swingArr.length); 
 		
 		if(voteIDArr.length == 0 && earlyArr == 0 && stateArr.length == 0 &&
-		   sameArr.length == 0){
+		   sameArr.length == 0 && swingArr.length == 0){
+			 createMap(requests["init"]);
 			 
-			 //$('#statistics tr').detach(); 
-			 /*$('#statistics').sheetrock({
-					url: mySpreadsheet,
-					query: "Select * where C='haha'",
-					callback: myCallback
-				});*/
-	}else{
+	  }else{
 	
 			queryString = "select * where"; 
+			title = "States where"; 
+			
 			var before = false; 
 			
 			if(voteIDArr.length > 0 && before){
 				queryString = queryString + " and ("; 
 			}else if(voteIDArr.length > 0){
-				queryString = queryString + " ("; 
+				queryString = queryString + " (";
+				title =
 			}
 			
 			if(voteIDArr.length > 0){
@@ -344,29 +299,125 @@ $( document ).ready(function(){
 				queryString = queryString + ")"; 
 			}
 			
-			queryString = queryString +" or A = 'State'"; 
+			if(swingArr.length > 0 && before){
+				queryString = queryString + " and ("; 
+			}else if(swingArr.length > 0){
+				queryString = queryString + " ("; 
+			}
 			
-			console.log(queryString); 
-			$('#statistics').sheetrock({
-					url: mySpreadsheet,
-					query: queryString,
-					callback: myCallback
-				});
+			if(swingArr.length > 0){
+			
+				before = true; 
+				
+				for(i = 0; i < swingArr.length; i++){
+					if(i == 0){
+						queryString = queryString + "G = \'" + swingArr[i] + "\'";
+					}else{
+						queryString = queryString + " or G = \'" + swingArr[i] + "\'";
+					}
+				}
+			}
+			
+			if(swingArr.length > 0){
+				queryString = queryString + ")"; 
+			}
+			
+			//queryString = queryString +" or A = 'State'"; 
+			
+			//console.log(queryString); 
+			
+			if(queryString in requests){
+				createMap(requests[queryString], title); 
+			}else{
+				$('#statistics').sheetrock({
+						url: mySpreadsheet,
+						query: queryString,
+						callback: myCallback
+					});
+			}
+				
+			
 		}
 	});
 	
-	$('#clear').click(function(){
+$('#clear').click(function(){
 	$("#statistics").remove(); 
-	$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped"></table>');
-	$('input:checkbox').prop('checked', false);
+	$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped" hidden></table>');
 	
-		$('#statistics').sheetrock({
-					url: mySpreadsheet,
-					query: "select * where A <> 'State2'",
-					callback: myCallback 
-				});
+	$('input:checkbox').prop('checked', false);
+	createMap(requests["init"], "No Filtering");
+	//$('#container').highcharts().setTitle({text: 'YEAH'})
+	
 }); 
 
+	function createMap(filteredStates, title) {
+
+		var data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']),
+		// Some responsiveness
+        small = $('#container').width() < 400;
+     
+		//console.log("YAS"); 
+		console.log(filteredStates); 
+		//filteredStates.splice(1, 1); 
+		//filteredStates = ["Maryland", "Alaska"]
+		//console.log(this.properties); 
+		 $.each(data, function () {
+				if(filteredStates.indexOf(this.name) == -1){
+					this.value = 0; 
+				}else{
+					//console.log(this.name); 
+					this.value = 1;
+				}
+		});
+	
+    // Instanciate the map
+    $('#container').highcharts('Map', {
+		
+		
+        title : {
+                text : title
+            },
+        plotOptions: {
+            map: {
+                allAreas: false,
+                joinBy: ['postal-code', 'code'],
+                dataLabels: {
+                    enabled: true,
+                    color: '#FFFFFF',
+                    format: '{point.code}',
+                    style: {
+                        fontWeight: 'bold'
+                    }
+                },
+                mapData: Highcharts.maps['countries/us/us-all'],
+                tooltip: {
+                    headerFormat: '',
+                    pointFormat: '{point.name}'
+                }
+
+            },
+        },
+				legend:{
+					enabled: false
+				},
+				
+				colorAxis: {
+					min: 0, 
+					minColor: '#4b96af',
+					maxColor: '#4b96af'
+				},
+				series: [{
+					data: data,
+					mapData: Highcharts.maps['countries/us/us-tx-all'],
+					joinBy: 'hc-key',
+					states: {
+						hover: {
+							color: '#fa1'
+						}
+					}
+				}]
+    });
+	};
 }); 
 
 </script>
