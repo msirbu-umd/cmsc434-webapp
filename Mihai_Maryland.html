@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<style type="text/css">
+</style>
+</head>
+
+<body>
+<script src="jquery.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+<script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<script src="http://code.highcharts.com/mapdata/countries/us/us-md-all.js"></script>
+
+<div id="container" style="height: 700px; min-width: 310px; max-width: 800px; margin: 0 auto">
+</div>
+
+<div class="row">
+<div class="text-center">
+	<label class="radio-inline"><input type="radio" name="optradio" value="NW" checked>% Non-White</label>
+	<label class="radio-inline"><input type="radio" name="optradio" value="VT">2014 % Voter Turnout</label>
+	<label class="radio-inline"><input type="radio" name="optradio" value="MFI">Median Family Income</label>
+	</div>
+</div>
+<script>
+$( document ).ready(function(){
+ 
+	var NW_Data = [{
+    "hc-key": "us-md-001",
+    "value": 11,
+		"name2": "Allegany"
+  }, {
+    "hc-key": "us-md-003",
+    "value": 25,
+		"name2": "Anne Arundel" 
+  }, {
+    "hc-key": "us-md-510",
+    "value": 79,
+		"name2":"Baltimore"
+  }, {
+    "hc-key": "us-md-005",
+    "value": 36,
+		"name2": "Baltimore County"
+  },{
+    "hc-key": "us-md-009",
+    "value": 19,
+		"name2": "Calvert"
+  },{
+    "hc-key": "us-md-011",
+    "value": 21,
+		"name2": "Caroline"
+  },{
+    "hc-key": "us-md-013",
+    "value": 8,
+		"name2": "Carroll"
+  },{
+    "hc-key": "us-md-015",
+    "value": 11,
+		"name2": "Cecil"
+  }, {
+    "hc-key": "us-md-017",
+    "value": 50,
+		"name2": "Charles"
+  },{
+    "hc-key": "us-md-019",
+    "value": 33,
+		"name2": "Dorchester"
+  },   {
+    "hc-key": "us-md-021",
+    "value": 19,
+		"name2": "Frederick"
+  }, {  
+    "hc-key": "us-md-023",
+    "value": 3,
+		"name2": "Garret"
+  }, {
+    "hc-key": "us-md-025",
+    "value": 19,
+		"name2": "Harford"
+  }, {
+    "hc-key": "us-md-027",
+    "value": 38,
+		"name2": "Howard"
+  },{
+    "hc-key": "us-md-029",
+    "value": 20,
+		"name2": "Kent"
+  },{
+    "hc-key": "us-md-031",
+    "value": 43,
+		"name2": "Montgomery"
+  },{
+    "hc-key": "us-md-033",
+    "value": 81,
+		"name2":"Prince George's"
+  },{
+    "hc-key": "us-md-035",
+    "value": 12,
+		"name2": "Queen's Anne's"
+  },{
+    "hc-key": "us-md-039",
+    "value": 47,
+		"name2": "Somerset"
+  },{
+    "hc-key": "us-md-037",
+    "value": 22,
+		"name2": "St. Mary's"
+  },{
+    "hc-key": "us-md-041",
+    "value": 19,
+		"name2": "Talbot"
+  },{
+    "hc-key": "us-md-043",
+    "value": 15,
+		"name2": "Washington"
+  }, {
+    "hc-key": "us-md-045",
+    "value": 32,
+		"name2": "Wicomico"
+  },{
+    "hc-key": "us-md-047",
+    "value": 18,
+		"name2": "Worcester"
+  }
+	];
+	
+	var VT_Data = [{
+    "hc-key": "us-md-001",
+    "value": 47,
+		"name2": "Allegany"
+  }, {
+    "hc-key": "us-md-003",
+    "value": 49,
+		"name2": "Anne Arundel" 
+  }, {
+    "hc-key": "us-md-510",
+    "value": 36,
+		"name2":"Baltimore"
+  }, {
+    "hc-key": "us-md-005",
+    "value": 49,
+		"name2": "Baltimore County"
+  },{
+    "hc-key": "us-md-009",
+    "value": 53,
+		"name2": "Calvert"
+  },{
+    "hc-key": "us-md-011",
+    "value": 49,
+		"name2": "Caroline"
+  },{
+    "hc-key": "us-md-013",
+    "value": 55,
+		"name2": "Carroll"
+  },{
+    "hc-key": "us-md-015",
+    "value": 42,
+		"name2": "Cecil"
+  }, {
+    "hc-key": "us-md-017",
+    "value": 46,
+		"name2": "Charles"
+  },{
+    "hc-key": "us-md-019",
+    "value": 49,
+		"name2": "Dorchester"
+  },   {
+    "hc-key": "us-md-021",
+    "value": 51,
+		"name2": "Frederick"
+  }, {  
+    "hc-key": "us-md-023",
+    "value": 46,
+		"name2": "Garret"
+  }, {
+    "hc-key": "us-md-025",
+    "value": 54,
+		"name2": "Harford"
+  }, {
+    "hc-key": "us-md-027",
+    "value": 52,
+		"name2": "Howard"
+  },{
+    "hc-key": "us-md-029",
+    "value": 59,
+		"name2": "Kent"
+  },{
+    "hc-key": "us-md-031",
+    "value": 39,
+		"name2": "Montgomery"
+  },{
+    "hc-key": "us-md-033",
+    "value": 38,
+		"name2":"Prince George's"
+  },{
+    "hc-key": "us-md-035",
+    "value": 57,
+		"name2": "Queen's Anne's"
+  },{
+    "hc-key": "us-md-039",
+    "value": 49,
+		"name2": "Somerset"
+  },{
+    "hc-key": "us-md-037",
+    "value": 49,
+		"name2": "St. Mary's"
+  },{
+    "hc-key": "us-md-041",
+    "value": 57,
+		"name2": "Talbot"
+  },{
+    "hc-key": "us-md-043",
+    "value": 42,
+		"name2": "Washington"
+  }, {
+    "hc-key": "us-md-045",
+    "value": 44,
+		"name2": "Wicomico"
+  },{
+    "hc-key": "us-md-047",
+    "value": 52,
+		"name2": "Worcester"
+  }];
+	
+	var MFW_Data = [{
+    "hc-key": "us-md-001",
+    "value": 54540,
+		"name2": "Allegany"
+  }, {
+    "hc-key": "us-md-003",
+    "value": 102793,
+		"name2": "Anne Arundel" 
+  }, {
+    "hc-key": "us-md-510",
+    "value": 50361,
+		"name2":"Baltimore"
+  }, {
+    "hc-key": "us-md-005",
+    "value": 81945,
+		"name2": "Baltimore County"
+  },{
+    "hc-key": "us-md-009",
+    "value": 107308,
+		"name2": "Calvert"
+  },{
+    "hc-key": "us-md-011",
+    "value": 65409,
+		"name2": "Caroline"
+  },{
+    "hc-key": "us-md-013",
+    "value": 101408,
+		"name2": "Carroll"
+  },{
+    "hc-key": "us-md-015",
+    "value": 77042,
+		"name2": "Cecil"
+  }, {
+    "hc-key": "us-md-017",
+    "value": 102668,
+		"name2": "Charles"
+  },{
+    "hc-key": "us-md-019",
+    "value": 56925,
+		"name2": "Dorchester"
+  },   {
+    "hc-key": "us-md-021",
+    "value": 98652,
+		"name2": "Frederick"
+  }, {  
+    "hc-key": "us-md-023",
+    "value": 55739,
+		"name2": "Garret"
+  }, {
+    "hc-key": "us-md-025",
+    "value": 93494,
+		"name2": "Harford"
+  }, {
+    "hc-key": "us-md-027",
+    "value": 129474,
+		"name2": "Howard"
+  },{
+    "hc-key": "us-md-029",
+    "value": 71779,
+		"name2": "Kent"
+  },{
+    "hc-key": "us-md-031",
+    "value": 117373,
+		"name2": "Montgomery"
+  },{
+    "hc-key": "us-md-033",
+    "value": 84835,
+		"name2":"Prince George's"
+  },{
+    "hc-key": "us-md-035",
+    "value": 98798,
+		"name2": "Queen's Anne's"
+  },{
+    "hc-key": "us-md-039",
+    "value": 47713,
+		"name2": "Somerset"
+  },{
+    "hc-key": "us-md-037",
+    "value": 99428,
+		"name2": "St. Mary's"
+  },{
+    "hc-key": "us-md-041",
+    "value": 72858,
+		"name2": "Talbot"
+  },{
+    "hc-key": "us-md-043",
+    "value": 67365,
+		"name2": "Washington"
+  }, {
+    "hc-key": "us-md-045",
+    "value": 61181,
+		"name2": "Wicomico"
+  },{
+    "hc-key": "us-md-047",
+    "value": 70298,
+		"name2": "Worcester"
+  }
+	
+	]; 
+	
+	$('input:radio').change(function(){
+		  var option = $('input[name=optradio]:checked').val(); 
+			
+			var chart = $("#container").highcharts(); 
+			
+			if(option == "NW"){
+				chart.series[0].update({
+						data: NW_Data
+					});
+					chart.series[0].update({
+						tooltip:{
+								 headerFormat: '',
+								 pointFormat: '{point.name2}: {point.value}% Non-White'
+						}
+					});
+					
+					chart.setTitle({text: "2015 County Non-White %"}); 
+					chart.legend.title.attr({text: "% Non-White"}); 
+			}else if(option == "VT"){
+				chart.series[0].update({
+						data: VT_Data
+					});
+					chart.series[0].update({
+						tooltip:{
+								 headerFormat: '',
+								 pointFormat: '{point.name2}: {point.value}% Turnout'
+						}
+					});
+					
+					chart.setTitle({text: "2014 Midterm Election Voter Turnout by County"});
+					chart.legend.title.attr({text: "% Voter Turnout"}); 					
+			}else{
+				chart.series[0].update({
+						data: MFW_Data
+					});
+					chart.series[0].update({
+						tooltip:{
+								 headerFormat: '',
+								 pointFormat: '{point.name2}: ${point.value}'
+						}
+					});
+					
+					chart.setTitle({text: "2014 Median Family Income by County"}); 
+					chart.legend.title.attr({text: "Median Family Income ($)"}); 
+					
+			}
+	}); 
+	
+	createMap(NW_Data, "2015 County Non-White %");
+	
+ // Initiate the chart
+ function createMap(data, title){
+  $('#container').highcharts('Map', {
+
+    title: {
+      text: title
+    },
+
+		/*
+    subtitle: {
+      text: 'Source map: <a href="https://suburbanstats.org/population/maryland/list-of-counties-and-cities-in-maryland">Surburban Stats</a>'
+    },*/
+
+    mapNavigation: {
+      enabled: false
+    },
+		legend: {
+    	enabled: true,
+			title: {
+				text: "% Non-White"  
+				}
+    },
+    chart: {
+      backgroundColor: '#4b96af'
+    },
+    colorAxis: {
+      minColor: '#FF0000',
+      maxColor: '#EEDD66'
+    },
+
+    series: [{
+      data: data,
+      mapData: Highcharts.maps['countries/us/us-md-all'],
+      joinBy: 'hc-key',
+      name: 'Random data',
+			dataLabels: {
+        enabled: true, 
+				format: '{point.name}',
+      },
+			tooltip:{
+				 headerFormat: '',
+         pointFormat: '{point.name2}: {point.value} % Non-White'
+			}
+    }]
+  });
+};
+}); 
+
+</script>
+</body>
+</html>
