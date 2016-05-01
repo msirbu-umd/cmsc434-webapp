@@ -32,11 +32,13 @@ $(function () {
             title: {
                 text: "ID Requirements",
                 style: {
-                    color: '#FFFFFF'
+                    color: '#FFFFFF',
+                    fontSize: '15px'
                 }
             },
             itemStyle: {
                 color: 'white',
+                fontSize: '15px'
 
             }
         },
