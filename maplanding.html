@@ -2,10 +2,10 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="cindy.bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="mystyle.css">
-<style type="text/css">
-</style>
+    <link rel="stylesheet" type="text/css" href="cindy.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <style type="text/css">
+    </style>
 
 </head>
 
@@ -21,65 +21,67 @@
 
 
 <div class="text-center">
-	<div class="row">
-			<nav class="navbar">
-				<div class="container-fluid">
-					<ul class="nav navbar-nav">
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown">Legislation
-							<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Page 1-1</a></li>
-								<li><a href="#">Page 1-2</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown">News
-							<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Page 2-1</a></li>
-								<li><a href="#">Page 2-2</a></li>
-								<li><a href="#">Page 3-3</a></li> 
-							</ul>
-						</li>
-						 <li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown">Organizations
-							<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Page 3-1</a></li>
-								<li><a href="#">Page 3-2</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown">Research
-							<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Page 4-1</a></li>
-								<li><a href="#">Page 4-2</a></li>
-								<li><a href="#">Page 4-3</a></li> 
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown">Get Involved
-							<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Page 5-1</a></li>
-								<li><a href="#">Page 5-2</a></li>
-								<li><a href="#">Page 5-3</a></li> 
-								<li><a href="#">Page 5-4</a></li> 
-							</ul>
-						</li>
-						 </li>
-						 <li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown">About
-							<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Page 6-1</a></li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-	</div>
+    <div class="row">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Legislation
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">News
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 2-1</a></li>
+                            <li><a href="#">Page 2-2</a></li>
+                            <li><a href="#">Page 3-3</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Organizations
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 3-1</a></li>
+                            <li><a href="#">Page 3-2</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Research
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 4-1</a></li>
+                            <li><a href="#">Page 4-2</a></li>
+                            <li><a href="#">Page 4-3</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Get Involved
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 5-1</a></li>
+                            <li><a href="#">Page 5-2</a></li>
+                            <li><a href="#">Page 5-3</a></li>
+                            <li><a href="#">Page 5-4</a></li>
+                        </ul>
+                    </li>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">About
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 6-1</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>
 </div>
 
 
@@ -88,226 +90,228 @@
 </div>
 
 <div class="text-center">
-<div class="btn-group">
-    <button type="button" class="btn btn-primary" name="options" id="voterID"> Voter ID Laws
-    <button type="button" class="btn btn-primary" name="options" id="VT2014"> Voter Turnout 2014
-</div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" name="options" id="voterID"> Voter ID Laws</button>
+            <button type="button" class="btn btn-primary" name="options" id="VT2014"> Voter Turnout 2014</button>
+    </div>
 </div>
 
 <script>
-$( document ).ready(function(){
+    $( document ).ready(function(){
 
-		$("#voterID").click(function(){
-		var data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']),
-		// Some responsiveness
-        small = $('#container').width() < 400;
-        
-		//console.log(this.properties); 
-		 $.each(data, function (i) {
-        this.drilldown = this.properties['hc-key'];
-		});
-		
-    // Instanciate the map
-    $('#container').highcharts('Map', {
-		
-		
-        title : {
-                text : 'VOTER ID LAWS'
-            },
-				subtitle: {
-             text: 'Source: <a href="http://www.ncsl.org/research/elections-and-campaigns/voter-id.aspx">NCSL</a>'
-        },
-        /*legend: {
-            enabled: true
-        },*/
+        $("#voterID").click(function(){
+            var data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']),
+            // Some responsiveness
+                    small = $('#container').width() < 400;
 
-        plotOptions: {
-            map: {
-                allAreas: false,
-                joinBy: ['postal-code', 'code'],
-                dataLabels: {
-                    enabled: true,
-                    color: '#FFFFFF',
-                    format: '{point.code}',
-                    style: {
-                        fontWeight: 'bold'
-                    }
+            //console.log(this.properties);
+            $.each(data, function (i) {
+                this.drilldown = this.properties['hc-key'];
+            });
+
+            // Instanciate the map
+            $('#container').highcharts('Map', {
+
+
+                title : {
+                    text : 'VOTER ID LAWS'
                 },
-                mapData: Highcharts.maps['countries/us/us-all'],
-                tooltip: {
-                    headerFormat: '',
-                    pointFormat: '{point.name}: <b>{series.name}</b>'
-                }
+                subtitle: {
+                    text: 'Source: <a href="http://www.ncsl.org/research/elections-and-campaigns/voter-id.aspx">NCSL</a>'
+                },
+                /*legend: {
+                 enabled: true
+                 },*/
 
-            },
-						series: {
-                cursor: 'pointer',
-                point: {
-                    events: {
-                        click: function () {
-												   
-                           location.href = this.name+"_statepage.html";
-                        }
-                    }
-                }
-            }
-        },
-        series : [{
-            name: 'No document required to vote',
-						color: '#A1A1A1',
-            data: $.map(['ME', 'VT', 'NJ', 'MA', 'MD', 'DC', 'NY', 'PA', 'WV',
-						'IL', 'IA', 'MN', 'NE', 'WY', 'NM', 'NV', 'CA', 'OR'], function (code) {
-                return { code: code };
-            })
-        }, {
-            name: 'ID requested; photo not required',
-						color: '#8EFBBF',
-            data: $.map(['AK', 'WA', 'MT', 'UT', 'CO', 'OK', 'MO', 'AR', 'KY',
-						'NC', 'SC', 'DE', 'NH', 'CT','RI'], function (code) {
-                return { code: code };
-            })
-        }, {
-            name: 'Photo ID requested',
-						color: '#32BF72', 
-            data: $.map(['ID', 'SD', 'MI', 'LA', 'AL', 'FL', 'HI'], function (code) {
-                return { code: code };
-            })
-        }, {
-            name: 'Strict Non-Photo ID',
-						color: '#078841',
-            data: $.map(['AZ','OH'], function (code) {
-                return { code: code };
-            })
-        },{
-            name: 'Strict Photo ID',
-						color: '#044B24',
-            data: $.map(['TX','KS','ND','WI','IN','TN','MS','GA','VA'], function (code) {
-                return { code: code };
-            })
-        }]
-    });
-	}); 
-
-	$("#VT2014").click(function(){
-		 Highcharts.data({
-
-        //googleSpreadsheetKey: '0AoIaUO7wH1HwdDFXSlpjN2J4aGg5MkVHWVhsYmtyVWc',
-
-				googleSpreadsheetKey: '1dSyotV2iX6-K7-0YbU4EGfAE5ANLCwXFDI6SvWchGgI',
-				
-        // custom handler for columns
-        parsed: function (columns) {
-
-            // Make the columns easier to read
-
-            var keys = columns[0],
-                names = columns[1],
-                percent = columns[2],
-                // Build the chart options
-                options = {
-                    chart: {
-                        renderTo: 'container',
-                        type: 'map',
-                        //borderWidth: 1
-                    },
-
-                    title: {
-                        text: '2014 US Midterm Election Voter Turnout'
-                    },
-                    subtitle: {
-                        text: 'Source: <a href="http://www.electproject.org/home/voter-turnout/voter-turnout-data">US Election Project</a>'
-                    },
-
-                   /* legend: {
-                         layout: 'horizontal',
-												  verticalAlign: 'bottom',
-                        //verticalAlign: 'bottom',
-                        floating: true,
-                        layout: 'horizontal',
-                        valueDecimals: 0,
-                        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)'
-                    },*/
-
-                    mapNavigation: {
-                        enabled: true,
-                        enableButtons: false
-                    },
-
-                    colorAxis: {
-												min: 25,
-												max: 60,
-												minColor: '#EEEEFF',
-									maxColor: '#0000CD '
-                    },
-
-                    series: [{
-                        data: [],
-                        mapData: Highcharts.maps['countries/us/us-all'],
-                        joinBy: 'postal-code',
+                plotOptions: {
+                    map: {
+                        allAreas: false,
+                        joinBy: ['postal-code', 'code'],
                         dataLabels: {
                             enabled: true,
                             color: '#FFFFFF',
-                            format: '{point.postal-code}',
+                            format: '{point.code}',
                             style: {
-                                textTransform: 'uppercase'
+                                fontWeight: 'bold'
                             }
                         },
-                        name: '% Voter Turnout',
+                        mapData: Highcharts.maps['countries/us/us-all'],
+                        tooltip: {
+                            headerFormat: '',
+                            pointFormat: '{point.name}: <b>{series.name}</b>'
+                        }
+
+                    },
+                    series: {
+                        cursor: 'pointer',
                         point: {
-                    events: {
-                        click: function () {
-												   //console.log(this); 
-													 //console.log(this.name); 
-                           location.href = this.name+"_statepage.html";
+                            events: {
+                                click: function () {
+
+                                    location.href = this.name+"_statepage.html";
+                                }
+                            }
                         }
                     }
-										},
-                        tooltip: {
-														pointFormat: '{point.name}: {point.value}%'
-                            //ySuffix: ' %'
-                        },
-                        cursor: 'pointer'
-                    }]/*, /*{
-                        name: 'Separators',
-                        type: 'mapline',
-                        data: Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline'),
-                        color: 'silver',
-                        showInLegend: false,
-                        enableMouseTracking: false
-                    }]*/
-                };
-            keys = keys.map(function (key) {
-                return key.toUpperCase();
+                },
+                series : [{
+                    name: 'No document required to vote',
+                    color: '#A1A1A1',
+                    data: $.map(['ME', 'VT', 'NJ', 'MA', 'MD', 'DC', 'NY', 'PA', 'WV',
+                        'IL', 'IA', 'MN', 'NE', 'WY', 'NM', 'NV', 'CA', 'OR'], function (code) {
+                        return { code: code };
+                    })
+                }, {
+                    name: 'ID requested; photo not required',
+                    color: '#8EFBBF',
+                    data: $.map(['AK', 'WA', 'MT', 'UT', 'CO', 'OK', 'MO', 'AR', 'KY',
+                        'NC', 'SC', 'DE', 'NH', 'CT','RI'], function (code) {
+                        return { code: code };
+                    })
+                }, {
+                    name: 'Photo ID requested',
+                    color: '#32BF72',
+                    data: $.map(['ID', 'SD', 'MI', 'LA', 'AL', 'FL', 'HI'], function (code) {
+                        return { code: code };
+                    })
+                }, {
+                    name: 'Strict Non-Photo ID',
+                    color: '#078841',
+                    data: $.map(['AZ','OH'], function (code) {
+                        return { code: code };
+                    })
+                },{
+                    name: 'Strict Photo ID',
+                    color: '#044B24',
+                    data: $.map(['TX','KS','ND','WI','IN','TN','MS','GA','VA'], function (code) {
+                        return { code: code };
+                    })
+                }]
             });
-						
-						
-            Highcharts.each(options.series[0].mapData.features, function (mapPoint) {
-                if (mapPoint.properties['postal-code']) {
-                    var postalCode = mapPoint.properties['postal-code'],
-                        i = $.inArray(postalCode, keys);
-                    options.series[0].data.push(Highcharts.extend({
-                        value: parseFloat(percent[i]),
-                        name: names[i],
-                        'postal-code': postalCode,
-                        row: i
-                    }, mapPoint));
+        });
+
+        $("#VT2014").click(function(){
+            Highcharts.data({
+
+                //googleSpreadsheetKey: '0AoIaUO7wH1HwdDFXSlpjN2J4aGg5MkVHWVhsYmtyVWc',
+
+                googleSpreadsheetKey: '1dSyotV2iX6-K7-0YbU4EGfAE5ANLCwXFDI6SvWchGgI',
+
+                // custom handler for columns
+                parsed: function (columns) {
+
+                    // Make the columns easier to read
+
+                    var keys = columns[0],
+                            names = columns[1],
+                            percent = columns[2],
+                    // Build the chart options
+                            options = {
+                                chart: {
+                                    renderTo: 'container',
+                                    type: 'map',
+                                    backgroundColor: '#272b30'
+                                },
+                                title: {
+                                    text: '2014 US Midterm Election Voter Turnout',
+                                    style: {
+                                        color: '#F0F8FF'
+                                    }
+                                },
+                                subtitle: {
+                                    text: 'Source: <a href="http://www.electproject.org/home/voter-turnout/voter-turnout-data">US Election Project</a>'
+                                },
+
+                                /* legend: {
+                                 layout: 'horizontal',
+                                 verticalAlign: 'bottom',
+                                 //verticalAlign: 'bottom',
+                                 floating: true,
+                                 layout: 'horizontal',
+                                 valueDecimals: 0,
+                                 backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)'
+                                 },*/
+
+                                mapNavigation: {
+                                    enabled: true,
+                                    enableButtons: false
+                                },
+
+                                colorAxis: {
+                                    min: 25,
+                                    max: 60,
+                                    minColor: '#EEEEFF',
+                                    maxColor: '#0000CD '
+                                },
+
+                                series: [{
+                                    data: [],
+                                    mapData: Highcharts.maps['countries/us/us-all'],
+                                    joinBy: 'postal-code',
+                                    dataLabels: {
+                                        enabled: true,
+                                        color: '#FFFFFF',
+                                        format: '{point.postal-code}',
+                                        style: {
+                                            textTransform: 'uppercase'
+                                        }
+                                    },
+                                    name: '% Voter Turnout',
+                                    point: {
+                                        events: {
+                                            click: function () {
+                                                //console.log(this);
+                                                //console.log(this.name);
+                                                location.href = this.name+"_statepage.html";
+                                            }
+                                        }
+                                    },
+                                    tooltip: {
+                                        pointFormat: '{point.name}: {point.value}%'
+                                        //ySuffix: ' %'
+                                    },
+                                    cursor: 'pointer'
+                                }]/*, /*{
+                                 name: 'Separators',
+                                 type: 'mapline',
+                                 data: Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline'),
+                                 color: 'silver',
+                                 showInLegend: false,
+                                 enableMouseTracking: false
+                                 }]*/
+                            };
+                    keys = keys.map(function (key) {
+                        return key.toUpperCase();
+                    });
+
+
+                    Highcharts.each(options.series[0].mapData.features, function (mapPoint) {
+                        if (mapPoint.properties['postal-code']) {
+                            var postalCode = mapPoint.properties['postal-code'],
+                                    i = $.inArray(postalCode, keys);
+                            options.series[0].data.push(Highcharts.extend({
+                                value: parseFloat(percent[i]),
+                                name: names[i],
+                                'postal-code': postalCode,
+                                row: i
+                            }, mapPoint));
+                        }
+                    });
+
+                    // Initiate the chart
+
+                    window.chart = new Highcharts.Map(options);
+                },
+
+                error: function () {
+                    $('#container').html('<div class="loading">' +
+                            '<i class="icon-frown icon-large"></i> ' +
+                            '<p>Error loading data from Google Spreadsheets</p>' +
+                            '</div>');
                 }
             });
-
-            // Initiate the chart
-
-            window.chart = new Highcharts.Map(options);
-        },
-
-        error: function () {
-            $('#container').html('<div class="loading">' +
-                '<i class="icon-frown icon-large"></i> ' +
-                '<p>Error loading data from Google Spreadsheets</p>' +
-                '</div>');
-        }
+        });
     });
-	}); 
-}); 	
 
 </script>
 
