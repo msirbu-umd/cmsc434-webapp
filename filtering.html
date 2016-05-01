@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="cindy.bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 
 
@@ -21,7 +21,8 @@
 <body style="padding: 50px">
 
 <div class="row">
-	<div class="col-md-4">
+	<div style="float: left; width: 40%">
+		<!--<div class="col-md-4">-->
 		<div class="page-header">
 			<h4>Voter ID Requirements</h4>
 		</div>
@@ -107,7 +108,8 @@
 
 	</div>
 
-	<div class="col-md-8" id='tableSection' style="padding-top: 30pt;">
+	<div style="float: left; width: 60%" id='tableSection' style="padding-top: 30pt;">
+		<!--<div class="col-md-8" id='tableSection' style="padding-top: 30pt;">-->
 		<table id="statistics" class="table table-condensed table-striped" hidden></table>
 		<div id="container" style="height: 700px; min-width: 310px; max-width: 800px; margin: 0 auto">
 		</div>
@@ -401,8 +403,11 @@
 					$('#container').highcharts('Map', {
 
 
-						title : {
-							text : title
+						title: {
+							text: title,
+							style: {
+								color: '#F0F8FF'
+							}
 						},
 						plotOptions: {
 							map: {
@@ -426,6 +431,9 @@
 						},
 						legend:{
 							enabled: false
+						},
+						chart: {
+							backgroundColor: '#272b30'
 						},
 
 						colorAxis: {
