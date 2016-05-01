@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Maryland Information Page</title>
     <link rel="stylesheet" href="cindy.bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="mystyle.css">
     <link rel="stylesheet" href="app.css"/>
     <script type="text/javascript">var switchTo5x=true;</script>
     <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
@@ -21,11 +22,68 @@
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <script src="http://code.highcharts.com/mapdata/countries/us/us-md-all.js"></script>
 
-
     <script type="text/javascript">stLight.options({publisher: "40c09111-1216-47d1-bb0e-7796395e0b24", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 </head>
-<body ng-cloak style="padding: 50px">
+<!--<body ng-cloak style="padding: 50px">-->
+<div class="text-center">
+    <div class="row">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+										<li><a href="/maplanding" class="ND">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Background
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                        </ul>
+                    </li>
+										<!--
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">News
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 2-1</a></li>
+                            <li><a href="#">Page 2-2</a></li>
+                            <li><a href="#">Page 3-3</a></li>
+                        </ul>
+                    </li>-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Organizations
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://www.brennancenter.org/issues/voting-rights-elections">Brennan Center for Justice</a></li>
+                            <li><a href="https://www.aclu.org/issues/voting-rights">ACLU</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Tools
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/filtering">State Filtering Tool</a></li>
+                            <!--<li><a href="#">Page 4-2</a></li>
+                            <li><a href="#">Page 4-3</a></li>-->
+                        </ul>
+                    </li>
+										<!--
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Get Involved
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://www.w3schools.com/html/">Page 5-1</a></li>
+                            <li><a href="#">Page 5-2</a></li>
+                            <li><a href="#">Page 5-3</a></li>
+                            <li><a href="#">Page 5-4</a></li>
+                        </ul>
+                    </li>-->
+                    <li><a href="#" class="ND">About</a></li>
+                </ul>
+            </div>
+        </nav>
 
+    </div>
+</div>
 
 <div class="row">
 
@@ -336,7 +394,8 @@
                         var option = $('input[name=optradio]:checked').val();
 
                         var chart = $("#container").highcharts();
-
+												var axis = $('#container').highcharts().colorAxis[0]
+												 
                         if(option == "NW"){
                             chart.series[0].update({
                                 data: NW_Data
@@ -348,6 +407,13 @@
                                 }
                             });
 
+														axis.update({
+																			minColor: '#A1A1A1'
+														});
+														axis.update({
+																			maxColor: '#BF084B'
+														});
+														
                             chart.setTitle({text: "2015 County Non-White %"});
                             chart.legend.title.attr({text: "% Non-White"});
                         }else if(option == "VT"){
@@ -360,10 +426,19 @@
                                     pointFormat: '{point.name2}: {point.value}% Turnout'
                                 }
                             });
-
+	
+														axis.update({
+																			minColor: '#A1A1A1'
+														});
+														axis.update({
+																			maxColor: '#0C63F0'
+														});
+														
                             chart.setTitle({text: "2014 Midterm Election Voter Turnout by County"});
                             chart.legend.title.attr({text: "% Voter Turnout"});
+														
                         }else{
+												
                             chart.series[0].update({
                                 data: MFW_Data
                             });
@@ -373,6 +448,13 @@
                                     pointFormat: '{point.name2}: ${point.value}'
                                 }
                             });
+
+														axis.update({
+																			minColor: '#A1A1A1'
+														});
+														axis.update({
+																			maxColor: '#3B8F0A'
+														});
 
                             chart.setTitle({text: "2014 Median Family Income by County"});
                             chart.legend.title.attr({text: "Median Family Income ($)"});
@@ -415,8 +497,8 @@
                                 backgroundColor: '#272b30'
                             },
                             colorAxis: {
-                                minColor: '#FF0000',
-                                maxColor: '#EEDD66'
+                                minColor: '#A1A1A1',
+                                maxColor: '#BF084B'
                             },
 
                             series: [{
