@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Maryland Information Page</title>
     <link rel="stylesheet" href="cindy.bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
     <link rel="stylesheet" href="app.css"/>
     <script type="text/javascript">var switchTo5x=true;</script>
     <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
@@ -24,13 +24,13 @@
 
     <script type="text/javascript">stLight.options({publisher: "40c09111-1216-47d1-bb0e-7796395e0b24", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 </head>
-<!--<body ng-cloak style="padding: 50px">-->
+<body ng-cloak style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px;">
 <div class="text-center">
     <div class="row">
         <nav class="navbar">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-										<li><a href="/maplanding" class="ND">Home</a></li>
+                    <li><a href="maplanding.html" class="ND">Home</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Background
                             <span class="caret"></span></a>
@@ -39,16 +39,6 @@
                             <li><a href="#">Page 1-2</a></li>
                         </ul>
                     </li>
-										<!--
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">News
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Page 2-1</a></li>
-                            <li><a href="#">Page 2-2</a></li>
-                            <li><a href="#">Page 3-3</a></li>
-                        </ul>
-                    </li>-->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Organizations
                             <span class="caret"></span></a>
@@ -61,22 +51,9 @@
                         <a class="dropdown-toggle" data-toggle="dropdown">Tools
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/filtering">State Filtering Tool</a></li>
-                            <!--<li><a href="#">Page 4-2</a></li>
-                            <li><a href="#">Page 4-3</a></li>-->
+                            <li><a href="filtering.html">State Filtering Tool</a></li>
                         </ul>
                     </li>
-										<!--
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">Get Involved
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="http://www.w3schools.com/html/">Page 5-1</a></li>
-                            <li><a href="#">Page 5-2</a></li>
-                            <li><a href="#">Page 5-3</a></li>
-                            <li><a href="#">Page 5-4</a></li>
-                        </ul>
-                    </li>-->
                     <li><a href="#" class="ND">About</a></li>
                 </ul>
             </div>
@@ -394,8 +371,8 @@
                         var option = $('input[name=optradio]:checked').val();
 
                         var chart = $("#container").highcharts();
-												var axis = $('#container').highcharts().colorAxis[0]
-												 
+                        var axis = $('#container').highcharts().colorAxis[0]
+
                         if(option == "NW"){
                             chart.series[0].update({
                                 data: NW_Data
@@ -407,13 +384,13 @@
                                 }
                             });
 
-														axis.update({
-																			minColor: '#A1A1A1'
-														});
-														axis.update({
-																			maxColor: '#BF084B'
-														});
-														
+                            axis.update({
+                                minColor: '#A1A1A1'
+                            });
+                            axis.update({
+                                maxColor: '#BF084B'
+                            });
+
                             chart.setTitle({text: "2015 County Non-White %"});
                             chart.legend.title.attr({text: "% Non-White"});
                         }else if(option == "VT"){
@@ -426,19 +403,19 @@
                                     pointFormat: '{point.name2}: {point.value}% Turnout'
                                 }
                             });
-	
-														axis.update({
-																			minColor: '#A1A1A1'
-														});
-														axis.update({
-																			maxColor: '#0C63F0'
-														});
-														
+
+                            axis.update({
+                                minColor: '#A1A1A1'
+                            });
+                            axis.update({
+                                maxColor: '#0C63F0'
+                            });
+
                             chart.setTitle({text: "2014 Midterm Election Voter Turnout by County"});
                             chart.legend.title.attr({text: "% Voter Turnout"});
-														
+
                         }else{
-												
+
                             chart.series[0].update({
                                 data: MFW_Data
                             });
@@ -449,16 +426,16 @@
                                 }
                             });
 
-														axis.update({
-																			minColor: '#A1A1A1'
-														});
-														axis.update({
-																			maxColor: '#3B8F0A'
-														});
+                            axis.update({
+                                minColor: '#A1A1A1'
+                            });
+                            axis.update({
+                                maxColor: '#3B8F0A'
+                            });
 
                             chart.setTitle({text: "2014 Median Family Income by County"});
                             chart.legend.title.attr({text: "Median Family Income ($)"});
-												
+
                         }
                     });
 
@@ -486,12 +463,12 @@
                             legend: {
                                 enabled: true,
                                 title: {
-                                    text: "% Non-White", 
+                                    text: "% Non-White",
                                     style: {
                                         color: '#FFFFFF'
+                                    }
                                 }
-                                }
-																
+
                             },
                             chart: {
                                 backgroundColor: '#272b30'
@@ -537,14 +514,14 @@
         <div id="content" ng-controller="EventController" >
             <h3>More Info:</h3>
             <!--<ul class="thumbnails">-->
-                <!--<li ng-repeat="event in stateinfo.events">-->
-                    <!--<div class="row session">-->
-                        <!--<div class="well span9">-->
-                            <!--<h4 class="well-title">{{event.name}}</h4>-->
-                            <!--<a>{{event.description}}</a><br/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</li>-->
+            <!--<li ng-repeat="event in stateinfo.events">-->
+            <!--<div class="row session">-->
+            <!--<div class="well span9">-->
+            <!--<h4 class="well-title">{{event.name}}</h4>-->
+            <!--<a>{{event.description}}</a><br/>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
 
             <!--</ul>-->
 
@@ -555,46 +532,33 @@
                 </li>
                 <li><a href="#2" data-toggle="tab">Advocacy</a>
                 </li>
-                <li><a href="#3" data-toggle="tab">News: Early Voting</a>
-                </li>
-                <li><a href="#3" data-toggle="tab">Absentee Voting</a>
-                </li>
+                <li><a href="#3" data-toggle="tab">Early & Absentee</a>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane" id="1">
                     <h3>Voter ID Laws</h3>
-                    <!--<p>Please show the following forms of ID: A copy of a current and valid photo ID, a ' +
-                        'copy of a current utility bill, bank statement, government check, paycheck or other government ' +
-                        'document that shows your name and address.</p>-->		
-									  <p>In most cases you do not need to show an ID.</p>
-										<p>If you are asked to show an ID please show one the following forms:</p>
-										<ul>
-											<li>A copy of a current and valid photo ID OR</li>
-											<li>A copy of a current utility bill, bank statement, or paycheck OR</li>
-											<li>A government document that shows your name and address.</li>
-										</ul>
+                    <p>In most cases you do not need to show an ID.</p>
+                    <p>If you are asked to show an ID please show one the following forms:</p>
+                    <ul>
+                        <li>A copy of a current and valid photo ID OR</li>
+                        <li>A copy of a current utility bill, bank statement, or paycheck OR</li>
+                        <li>A government document that shows your name and address.</li>
+                    </ul>
                 </div>
 
                 <div class="tab-pane" id="2">
                     <h3>Advocacy</h3>
-										<p>There are a number of organizations working to expand Americans' <br >freedom to vote</p>
-										
-										<ul>
-											<li>The ACLU of Maryland: fights for the rights of the underrepresented <br> to vote</li>
-											<li>The New Voters Project: non-partisan effort to help register <br> young people and get them to the polls</li>
-										</ul>
-										<!--
-                    <p>The ACLU of Maryland: fights for the rights of the underrepresented to vote. ' +
-                        'The New Voters Project: a nonpartisan effort to help register young people and get them to the ' +
-                        'polls on Election Day.</p>-->
+                    <p>There are a number of organizations working to expand Americans' <br >freedom to vote</p>
+
+                    <ul>
+                        <li>The ACLU of Maryland: fights for the rights of the underrepresented <br> to vote</li>
+                        <li>The New Voters Project: non-partisan effort to help register <br> young people and get them to the polls</li>
+                    </ul>
                 </div>
                 <div class="tab-pane" id="3">
-                    <h3>News: Early Voting</h3>
+                    <h3>Early and Absentee Voting</h3>
                     <p>Early voting in Maryland began April 14 and runs through Thursday, April 21. Polling ' +
                         'places are open from 10 a.m. until 8 p.m. those days.</p>
-                </div>
-                <div class="tab-pane" id="4">
-                    <h3>Absentee Voting</h3>
                     <p>A registered Maryland voter may fill out an absentee ballout online digitally, ' +
                         'fill out a form downloaded online and turn in a physical form, or go to their local board of ' +
                         'elections and fill out and turn in the form </p>
@@ -607,7 +571,7 @@
 
 </div>
 
-<footer style="padding-top: 50px;">
+<footer class="text-center" style="padding-top: 50px;">
     <span class='st_sharethis_large' displayText='ShareThis'></span>
     <span class='st_facebook_large' displayText='Facebook'></span>
     <span class='st_twitter_large' displayText='Tweet'></span>
@@ -615,6 +579,7 @@
     <span class='st_pinterest_large' displayText='Pinterest'></span>
     <span class='st_email_large' displayText='Email'></span>
 </footer>
+
 
 </body>
 </html>
