@@ -27,9 +27,19 @@ $(function () {
             text: 'Source: <a href="http://www.ncsl.org/research/elections-and-campaigns/voter-id.aspx">NCSL</a>'
         },
 
-        legend: {
-            enabled: true
-        },
+				legend: {
+							enabled: true, 
+							title: {
+										text: "ID Requirements", 
+										style: {
+														color: '#FFFFFF'
+										}
+							},
+							 itemStyle: {
+										color: 'white',
+										
+							}
+				},
 
         plotOptions: {
             map: {

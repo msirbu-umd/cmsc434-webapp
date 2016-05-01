@@ -114,15 +114,30 @@
 
 
                 title : {
-                    text : 'VOTER ID LAWS'
+                    text : 'VOTER ID LAWS',
+										style: {
+                               color: '#F0F8FF'
+                           }
                 },
                 subtitle: {
                     text: 'Source: <a href="http://www.ncsl.org/research/elections-and-campaigns/voter-id.aspx">NCSL</a>'
                 },
-                /*legend: {
-                 enabled: true
-                 },*/
-
+								 chart: {
+										  backgroundColor: '#272b30'
+								 },
+								 legend: {
+																			enabled: true, 
+																			title: {
+																						text: "ID Requirements", 
+																						style: {
+																										color: '#FFFFFF'
+																						}
+																			},
+																			 itemStyle: {
+																						color: 'white',
+																						
+																			}
+																},
                 plotOptions: {
                     map: {
                         allAreas: false,
@@ -222,6 +237,15 @@
                                     text: 'Source: <a href="http://www.electproject.org/home/voter-turnout/voter-turnout-data">US Election Project</a>'
                                 },
 
+																legend: {
+																			enabled: true, 
+																			title: {
+																						text: "% Voter Turnout", 
+																						style: {
+																										color: '#FFFFFF'
+																						}
+																			}
+																},
                                 /* legend: {
                                  layout: 'horizontal',
                                  verticalAlign: 'bottom',
