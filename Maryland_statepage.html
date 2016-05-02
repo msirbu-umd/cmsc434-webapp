@@ -430,7 +430,7 @@
                                 minColor: '#A1A1A1'
                             });
                             axis.update({
-                                maxColor: '#3B8F0A'
+                                maxColor: '#044B24'
                             });
 
                             chart.setTitle({text: "2014 Median Family Income by County"});
@@ -475,7 +475,13 @@
                             },
                             colorAxis: {
                                 minColor: '#A1A1A1',
-                                maxColor: '#BF084B'
+                                maxColor: '#BF084B',
+																 labels: {
+																			
+																style: {
+																			color: 'white'
+																	}
+																}
                             },
 
                             series: [{
@@ -557,11 +563,22 @@
                 </div>
                 <div class="tab-pane" id="3">
                     <h3>Early and Absentee Voting</h3>
+										<h5>Early voting:</h5>
+											 <ul>
+													<li>Early voting in Maryland began April 14 and runs through Thursday, April 21.</li>
+				                  <li>Places are open from 10 a.m. until 8 p.m. those days.</li>
+											 </ul>
+										<h5>Absentee Voting:</h5>
+											 <ul>
+												  <li>A registered Maryland voter may fill out an absentee ballot online <br> or request one by mail</li>
+													<li>Once complete the form can be mailed back or dropped off at their local board of elections</li>
+											 </ul>
+										<!--	 
                     <p>Early voting in Maryland began April 14 and runs through Thursday, April 21. Polling ' +
                         'places are open from 10 a.m. until 8 p.m. those days.</p>
                     <p>A registered Maryland voter may fill out an absentee ballout online digitally, ' +
                         'fill out a form downloaded online and turn in a physical form, or go to their local board of ' +
-                        'elections and fill out and turn in the form </p>
+                        'elections and fill out and turn in the form </p> -->
                 </div>
             </div>
 
