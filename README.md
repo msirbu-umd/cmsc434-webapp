@@ -10,13 +10,14 @@
 
 ## Libraries used
 
-We are using a number of libraries for this implementation. This includes: 
+We are using a number of libraries/tools for this implementation. This includes: 
 
 [1] <a href="https://jquery.com/"> jQuery </a> <br />
 [2] <a href="https://angularjs.org/"> AngularJs </a> <br />
 [3] <a href="https://getbootstrap.com/"> Bootstrap </a> <br />
 [4] <a href="https://chriszarate.github.io/sheetrock/"> Sheetrock </a> <br />
 [5] <a href="http://www.highcharts.com/products/highmaps"> HighMaps.js </a> <br />
+[6] <a href="http://www.sharethis.com/"> ShareThis </a> <br />
 
 ## Set-up 
 
