@@ -110,5 +110,12 @@ $(function () {
                 return {code: code};
             })
         }]
-    });
+    },function(chart) {
+							var legWidth = this.legend.maxItemWidth; // width of legend
+							console.log(legWidth);
+							 $('.highcharts-legend-title').attr({
+								  transform: 'translate(' + (legWidth + 75) + ',0)',
+									'text-anchor': 'middle'
+								})
+						});
 });
