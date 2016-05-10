@@ -114,17 +114,17 @@
 		</div>
 
 		<div class="checkbox">
-			<label><input type="checkbox" value="NER" name="early">NO EV and reason required for AV (NER)</label>
+			<label><input type="checkbox" value="NER" name="early">NO Early Voting and reason required for Absentee Voting</label>
 		</div>
 		<div class="checkbox">
-			<label><input type="checkbox" value="ER" name="early">EV and reason required for AV (ER)</label>
+			<label><input type="checkbox" value="ER" name="early">Early Voting and reason required for Absentee Voting </label>
 		</div>
 		<div class="checkbox">
-			<label><input type="checkbox" value="ENR" name="early">EV and NO reason required for AV (ENR)</label>
+			<label><input type="checkbox" value="ENR" name="early">Early Voting and NO reason required for Absentee Voting </label>
 		</div>
 
 		<div class="checkbox">
-			<label><input type="checkbox" value="AMV" name="early"> All-mail voting (AMV)</label>
+			<label><input type="checkbox" value="AMV" name="early"> All-mail voting</label>
 		</div>
 
 		<hr>
@@ -516,13 +516,13 @@
 						colorAxis: {
 							min: 1,
 							max: 2,
-							minColor: '#A8A8A8',
+							minColor: '#848583',
 							//maxColor: '#4b96af'
-							maxColor: '#FFFFFF'
+							maxColor: '#044B24'
 						},
 						series: [{
 							data: data,
-							mapData: Highcharts.maps['countries/us/us-tx-all'],
+							mapData: Highcharts.maps['countries/us/us-us-all'],
 							joinBy: 'hc-key',
 							states: {
 								hover: {
