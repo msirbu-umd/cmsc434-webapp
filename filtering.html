@@ -83,34 +83,35 @@
 	<div style="float: left; width: 40%">
 		<!--<div class="col-md-4">-->
 		
-		<div>
-			<h4> Select different criteria to see which states satisfy them. <h4>
+		<!--<div>
+			<h4>Select different criteria to see which states satisfy them.<h4>
 		</div>
-		<br/>
+		<br/>-->
+		
 		<div>
 			<h4>Voter ID Requirements</h4>
 		</div>
 
 		<div class="checkbox">
-			<label><input type="checkbox" value="NDR" name="voteID">No document required (NDR)</label>
+			<label><input type="checkbox" value="NDR" name="voteID">No document required</label>
 		</div>
 		<div class="checkbox">
-			<label><input type="checkbox" value="IRPNR" name="voteID">ID requested; photo not required (IRPNR)</label>
+			<label><input type="checkbox" value="IRPNR" name="voteID">ID requested; photo not required</label>
 		</div>
 		<div class="checkbox">
-			<label><input type="checkbox" value="PIR" name="voteID">Photo ID requested (PIR)</label>
+			<label><input type="checkbox" value="PIR" name="voteID">Photo ID requested</label>
 		</div>
 		<div class="checkbox">
-			<label><input type="checkbox" value="SNP" name="voteID">Strict Non-Photo ID (SNP)</label>
+			<label><input type="checkbox" value="SNP" name="voteID">Strict Non-Photo ID</label>
 		</div>
 		<div class="checkbox">
-			<label><input type="checkbox" value="SP" name="voteID">Strict Photo ID (SP)</label>
+			<label><input type="checkbox" value="SP" name="voteID">Strict Photo ID</label>
 		</div>
 
 		<hr>
 
 		<div>
-			<h4>Early Voting (EV) & Absentee Voting (AV) </h4>
+			<h4>Early Voting & Absentee Voting</h4>
 		</div>
 
 		<div class="checkbox">
@@ -124,13 +125,13 @@
 		</div>
 
 		<div class="checkbox">
-			<label><input type="checkbox" value="AMV" name="early"> All-mail voting</label>
+			<label><input type="checkbox" value="AMV" name="early">All-mail voting</label>
 		</div>
 
 		<hr>
 
 		<div>
-			<h4>Party Control of State Legislature (PCSL)</h4>
+			<h4>Party Control of State Legislature</h4>
 		</div>
 
 		<div class="checkbox">
@@ -505,6 +506,17 @@
 								}
 
 							},
+							 series: {
+                        cursor: 'pointer',
+                        point: {
+                            events: {
+                                click: function () {
+
+                                    location.href = this.name+"_statepage.html";
+                                }
+                            }
+                        }
+                    }
 						},
 						legend:{
 							enabled: false
@@ -520,6 +532,7 @@
 							//maxColor: '#4b96af'
 							maxColor: '#044B24'
 						},
+						
 						series: [{
 							data: data,
 							mapData: Highcharts.maps['countries/us/us-us-all'],
