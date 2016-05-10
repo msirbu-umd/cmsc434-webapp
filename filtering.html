@@ -205,8 +205,13 @@
 					if (!error) {
 						//Will need to investigate further.
 						requests[queryString] = [];
-						for (var i = 0; i < response.rows.length; i++) {
-							requests[queryString].push(response.rows[i].cellsArray[0]);
+						
+						if(queryString === "init"){
+							requests["init"] = [] 
+						}else{
+							for (var i = 0; i < response.rows.length; i++) {
+								requests[queryString].push(response.rows[i].cellsArray[0]);
+							}
 						}
 					}else{
 						console.log("NO!");
@@ -464,10 +469,10 @@
 					//console.log(this.properties);
 					$.each(data, function () {
 						if(filteredStates.indexOf(this.name) == -1){
-							this.value = 0;
+							this.value = 1;
 						}else{
 							//console.log(this.name);
-							this.value = 1;
+							this.value = 2;
 						}
 					});
 
@@ -475,12 +480,12 @@
 					$('#container').highcharts('Map', {
 
 
-						title: {
+						/*title: {
 							text: title,
 							style: {
 								color: '#F0F8FF'
 							}
-						},
+						},*/
 						plotOptions: {
 							map: {
 								allAreas: false,
@@ -509,9 +514,11 @@
 						},
 
 						colorAxis: {
-							min: 0,
-							minColor: '#4b96af',
-							maxColor: '#4b96af'
+							min: 1,
+							max: 2,
+							minColor: '#A8A8A8',
+							//maxColor: '#4b96af'
+							maxColor: '#FFFFFF'
 						},
 						series: [{
 							data: data,
