@@ -6,7 +6,7 @@
 [1b] If you do not have a local server, you can Download Node.js and follow the commands in set-up (below) <br />
 [2] To launch the website point your browser to http://localhost:8080/maplanding <br />
 [3] You can get to the state page by either clicking on Maryland on the main map or by pointing your browser to http://localhost:8080/Maryland_statepage.html <br />
-[4] To get to the filtering page, point your browser to http://localhost:8080/filtering.html
+[4] To get to the filtering page, you can click on Tools in the navbar or by pointing your browser to http://localhost:8080/filtering.html
 
 ## Libraries used
 
@@ -17,6 +17,7 @@ We are using a number of libraries for this implementation. This includes:
 [3] <a href="https://getbootstrap.com/"> Bootstrap </a> <br />
 [4] <a href="https://chriszarate.github.io/sheetrock/"> Sheetrock </a> <br />
 [5] <a href="http://www.highcharts.com/products/highmaps"> HighMaps.js </a> <br />
+[6] <a href="http://www.sharethis.com/"> ShareThis </a> <br />
 
 ## Set-up 
 
