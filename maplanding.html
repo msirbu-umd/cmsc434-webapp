@@ -2,7 +2,9 @@
 <html>
 
 <!--
-This code implements the main landing page for our web app. 
+This code implements the main landing page for our web app, which is the first
+page users see when they arrive. On this page are two interactive maps, one for
+voter ID laws across the US and another for 2014 voter turnout.
 -->
 
 <head>
@@ -78,11 +80,11 @@ This code implements the main landing page for our web app.
 
 <script>
 
-		/**
-			The code here is used to detect when the user changes the map on the screen 
-			(two options voter ID laws and voter turnout 2014). 
-			To create the map we used a third party tool called highmaps.js
-		*/
+/**
+    The code here is used to detect when the user changes the map on the screen
+    (two options voter ID laws and voter turnout 2014).
+    To create the map we used a third party tool called highmaps.js
+*/
     $( document ).ready(function(){
 
         $("#voterID").click(function(){
@@ -144,7 +146,7 @@ This code implements the main landing page for our web app.
                         }
 
                     },
-										//This allows the clicking to the Maryland state page to happen. 
+                    //This allows the clicking to the Maryland state page to happen.
                     series: {
                         cursor: 'pointer',
                         point: {
@@ -157,8 +159,8 @@ This code implements the main landing page for our web app.
                         }
                     }
                 },
-								//The different states and the various voter ID requirements for each
-								//We give each a different color. 
+                //The different states and the various voter ID requirements for each
+                //We give each a different color.
                 series : [{
                     name: 'No document required to vote',
                     color: '#A1A1A1',
@@ -203,11 +205,11 @@ This code implements the main landing page for our web app.
 						});
         });
 
-				/**
-					The code below is used to display the 2014 voter turnout map on the page
-					It is displayed when the user clicks the Voter Turnout button the screen
-					Like the other map, this uses highmaps to implement the interactive map. 
-				*/
+        /**
+            The code below is used to display the 2014 voter turnout map on the page
+            It is displayed when the user clicks the Voter Turnout button the screen
+            Like the other map, this uses highmaps to implement the interactive map.
+        */
         $("#VT2014").click(function(){
             Highcharts.data({
 
@@ -251,15 +253,6 @@ This code implements the main landing page for our web app.
                                     } 
 																		//useH: true
                                 },
-                                /* legend: {
-                                 layout: 'horizontal',
-                                 verticalAlign: 'bottom',
-                                 //verticalAlign: 'bottom',
-                                 floating: true,
-                                 layout: 'horizontal',
-                                 valueDecimals: 0,
-                                 backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)'
-                                 },*/
 
                                 mapNavigation: {
                                     enabled: true,
@@ -307,14 +300,7 @@ This code implements the main landing page for our web app.
                                         //ySuffix: ' %'
                                     },
                                     cursor: 'pointer'
-                                }]/*, /*{
-                                 name: 'Separators',
-                                 type: 'mapline',
-                                 data: Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline'),
-                                 color: 'silver',
-                                 showInLegend: false,
-                                 enableMouseTracking: false
-                                 }]*/
+                                }]
                             };
                     keys = keys.map(function (key) {
                         return key.toUpperCase();

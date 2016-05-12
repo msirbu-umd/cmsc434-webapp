@@ -18,6 +18,11 @@
 
 </head>
 
+<!--
+ This code is used to create our optional bonus filtering tool. By selecting different criteria,
+ users can see which states satisfy those criteria. States that satisfy those criteria are green
+ while states that do not are gray.
+-->
 <!--<style="padding: 50px">-->
 <div class="text-center">
     <div class="row">
@@ -33,16 +38,6 @@
                             <li><a href="#">Page 1-2</a></li>
                         </ul>
                     </li>
-										<!--
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">News
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Page 2-1</a></li>
-                            <li><a href="#">Page 2-2</a></li>
-                            <li><a href="#">Page 3-3</a></li>
-                        </ul>
-                    </li>-->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Organizations
                             <span class="caret"></span></a>
@@ -56,21 +51,8 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="filtering.html">State Filtering Tool</a></li>
-                            <!--<li><a href="#">Page 4-2</a></li>
-                            <li><a href="#">Page 4-3</a></li>-->
                         </ul>
                     </li>
-										<!--
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">Get Involved
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="http://www.w3schools.com/html/">Page 5-1</a></li>
-                            <li><a href="#">Page 5-2</a></li>
-                            <li><a href="#">Page 5-3</a></li>
-                            <li><a href="#">Page 5-4</a></li>
-                        </ul>
-                    </li>-->
                     <li><a href="#" class="ND">About</a></li>
                 </ul>
             </div>
@@ -79,14 +61,10 @@
     </div>
 </div>
 
+<!-- Used for the menu bar located to the left of the map. This includes all the different
+categories and the checkboxes associated with them -->
 <div class="row" style="padding: 50px">
 	<div style="float: left; width: 40%">
-		<!--<div class="col-md-4">-->
-		
-		<!--<div>
-			<h4>Select different criteria to see which states satisfy them.<h4>
-		</div>
-		<br/>-->
 		
 		<div>
 			<h4>Voter ID Requirements</h4>
@@ -185,6 +163,11 @@
 
 	</div>
 
+	<!--
+	 The information for the filtering too is stored in a google spreadsheet. Information for the sheet
+	 is pulled using an external library called sheetrocks. Like the other files, the interactive map
+	 is created using highmaps.
+	-->
 	<div style="float: left; width: 60%" id='tableSection' style="padding-top: 30pt;">
 		<!--<div class="col-md-8" id='tableSection' style="padding-top: 30pt;">-->
 		<table id="statistics" class="table table-condensed table-striped" hidden></table>
@@ -206,6 +189,9 @@
 				var stateData;
 				var title = "All States (No Filtering)";
 
+				//This function is used to receive the data from the google spreadsheet. Because
+				//each query can only be submitted once, we must save the results (in order to make
+				//sure that a user trying the same query twice gets data both times!)
 				var myCallback = function (error, options, response) {
 					if (!error) {
 						//Will need to investigate further.
@@ -238,28 +224,20 @@
 				});
 
 
-
-				/*$('input:checkbox').click(function(){
-				 if($(this).prop('checked')){
-				 console.log($(this).val());
-				 }else{
-				 console.log("SUCK IT!");
-				 }
-				 }); */
-
-
 				//$('#apply').click(function(){
 				$('input:checkbox').click(function(){
 					$("#statistics").remove();
 
 					$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped" hidden></table>');
 
+					//Used to store which criteria are currently clicked.
 					var voteIDArr = [];
 					var earlyArr = [];
 					var stateArr = [];
 					var sameArr = [];
 					var swingArr = [];
 
+					//Get the checkbox for each category that are clicked and add them to the array.
 					$("input:checkbox[name='voteID']:checked").each(function(){
 						voteIDArr.push($(this).val());
 					});
@@ -276,12 +254,10 @@
 						swingArr.push($(this).val());
 					});
 
-					console.log(voteIDArr);
-					console.log(earlyArr);
-					console.log(stateArr);
-					console.log(sameArr);
-					console.log(swingArr);
+					// For each checked checkbox, slowly build the query required to
+					//request the data from the spreadsheet.
 
+					//The no criteria are checked case.
 					if(voteIDArr.length == 0 && earlyArr == 0 && stateArr.length == 0 &&
 							sameArr.length == 0 && swingArr.length == 0){
 						title = "All States (No Filtering)";
@@ -294,6 +270,7 @@
 
 						var before = false;
 
+						//Used for the voter ID criteria
 						if(voteIDArr.length > 0 && before){
 							queryString = queryString + " and (";
 							title = title + " and \'ID req\' = (";
@@ -321,6 +298,7 @@
 							title = title + ")";
 						}
 
+						//Used for the early voting criteria
 						if(earlyArr.length > 0 && before){
 							queryString = queryString + " and (";
 							title = title + " and \'EV & AV\' = (";
@@ -349,6 +327,7 @@
 							title = title + ")";
 						}
 
+						//Used for the type of state government criteria
 						if(stateArr.length > 0 && before){
 							queryString = queryString + " and (";
 							title = title + " and \'PCSL\' = (";
@@ -377,6 +356,7 @@
 							title = title + ")";
 						}
 
+						//Used for the same day voting registration critera.
 						if(sameArr.length > 0 && before){
 							queryString = queryString + " and (";
 							title = title + " and \'Same Day\' = (";
@@ -405,6 +385,7 @@
 							title = title + ")";
 						}
 
+						//USed for the swing state criteria
 						if(swingArr.length > 0 && before){
 							queryString = queryString + " and (";
 							title = title + " and \'Swing State\' = (";
@@ -437,6 +418,9 @@
 
 						console.log(queryString);
 
+						//Check to see if the request has already happened before. If so,
+						//send saved data to the map. Otherwise request the data from
+						//the spreadsheet.
 						if(queryString in requests){
 							createMap(requests[queryString], title);
 						}else{
@@ -451,6 +435,7 @@
 					}
 				});
 
+				//Used to clear the filters.
 				$('#clear').click(function(){
 					$("#statistics").remove();
 					$('#tableSection').append('<table id="statistics" class="table table-condensed table-striped" hidden></table>');
@@ -461,6 +446,9 @@
 
 				});
 
+				//This is the function that actually takes the data received from the query
+				//and populates the map accordingly. We used highmaps in order to
+				//implement this feature.
 				function createMap(filteredStates, title) {
 
 					var data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']),
@@ -469,9 +457,11 @@
 
 					//console.log("YAS");
 					console.log(filteredStates);
-					//filteredStates.splice(1, 1);
-					//filteredStates = ["Maryland", "Alaska"]
-					//console.log(this.properties);
+
+					//Figure out which states have been selected (e.g. returned by the query)
+					//and which states have not. Value of 1 means the state does not match
+					//the criteria whereas a value of 2 means the state HAS been selected
+					//by the critera.
 					$.each(data, function () {
 						if(filteredStates.indexOf(this.name) == -1){
 							this.value = 1;
@@ -485,12 +475,6 @@
 					$('#container').highcharts('Map', {
 
 
-						/*title: {
-							text: title,
-							style: {
-								color: '#F0F8FF'
-							}
-						},*/
 						plotOptions: {
 							map: {
 								allAreas: false,
@@ -528,7 +512,7 @@
 						chart: {
 							backgroundColor: '#272b30'
 						},
-
+						//set the two colors for selected and not selected.
 						colorAxis: {
 							min: 1,
 							max: 2,
