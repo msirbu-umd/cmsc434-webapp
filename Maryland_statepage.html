@@ -24,7 +24,12 @@
 
     <script type="text/javascript">stLight.options({publisher: "40c09111-1216-47d1-bb0e-7796395e0b24", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 </head>
+
+
 <body ng-cloak style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px;">
+
+<!-- navbar code: not everything is filled in, only things relevant to video and things we've finished linking to
+ everything in the navbar works and links to other pages that we've created-->
 <div class="text-center">
     <div class="row">
         <nav class="navbar">
@@ -66,6 +71,9 @@
 
     <div style="float: left; width: 70%">
         <div id="container" >
+
+            <!-- script containing data for the map, specifically all the data for all the counties
+             the chart itself is taken from a third party service, Highcharts, but the data is filled in by us-->
 
             <script>
                 $( document ).ready(function(){
@@ -367,6 +375,7 @@
 
                     ];
 
+                    <!-- javascript that edits the filter legends at the bottom of the page -->
                     $('input:radio').change(function(){
                         var option = $('input[name=optradio]:checked').val();
 
@@ -441,7 +450,7 @@
 
                     createMap(NW_Data, "2015 County Non-White %");
 
-                    // Initiate the chart
+                    <!-- creates the chart, as well as customizes it from the highcharts default -->
                     function createMap(data, title){
                         $('#container').highcharts('Map', {
 
@@ -506,6 +515,8 @@
 
         </div>
 
+        <!-- creating the filter legends at the bottom of the map
+         the javascript edits them, but the html puts them in place-->
         <div>
             <div class="text-center">
                 <label style="display: inline-block; vertical-align: top; padding: 10px; font-size: 18px;">
@@ -521,20 +532,10 @@
 
     <div style="float: left; width: 30%">
         <div id="content" ng-controller="EventController" >
+
+            <!-- the table next to the map containing more information, such as the specific Voter ID laws for that
+             state, as well as absentee and early voting, and advocacy in that state-->
             <h3>More Info:</h3>
-            <!--<ul class="thumbnails">-->
-            <!--<li ng-repeat="event in stateinfo.events">-->
-            <!--<div class="row session">-->
-            <!--<div class="well span9">-->
-            <!--<h4 class="well-title">{{event.name}}</h4>-->
-            <!--<a>{{event.description}}</a><br/>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</li>-->
-
-            <!--</ul>-->
-
-            <!-- ============== -->
 
             <ul class="nav nav-tabs" id="product-table">
                 <li><a href="#1" data-toggle="tab">Voter ID Laws</a>
@@ -599,6 +600,8 @@
 
 </div>
 
+
+<!-- the sharing feature, taken from a third party service, ShareThis. code is taken from them and customized by us -->
 <footer class="text-center" style=" margin: auto; width: 50%">
 
     <div>
