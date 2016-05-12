@@ -1,6 +1,10 @@
-# cmsc434-webapp
+# Empowering The Voter: cmsc434-webapp
 
-## Running code
+This github repo implements the web app for Team 2's Empowering the Voter project for CSMC434. The purpose of this web app is to raise awareness about voter ID laws throughout the US. The two main tasks that this web app implements is "finding more info about voter ID laws in Maryland" and "sharing the Maryland state page with friends via email." Interactive maps built using highmaps is central to our design. We also implemented an additional state filtering tool. 
+
+Team 2 is composed of four seniors: Jay Zhang, Justin Miller, Cindy Ren, and Mihai Sirbu. Cindy and Mihai were in charge of the web app and worked on its implementation throughout all three versions.  
+
+## Running the code
 
 [1] Download zip and launch a local server in the main directory of this repo (e.g. the one with all of the files such as maplanding.html) <br />
 [1b] If you do not have a local server, you can Download Node.js and follow the commands in set-up (below) <br />
@@ -18,6 +22,15 @@ We are using a number of libraries for this implementation. This includes:
 [4] <a href="https://chriszarate.github.io/sheetrock/"> Sheetrock </a> <br />
 [5] <a href="http://www.highcharts.com/products/highmaps"> HighMaps.js </a> <br />
 [6] <a href="http://www.sharethis.com/"> ShareThis </a> <br />
+
+## Data used came from: 
+
+[1] http://www.ncsl.org/research/elections-and-campaigns/voter-id.aspx
+[2] http://www.electproject.org/home/voter-turnout/voter-turnout-data
+[3] http://www.infoplease.com/us/census/data/maryland/
+[4] http://www.ncsl.org/research/elections-and-campaigns/absentee-and-early-voting.aspx
+[5] http://www.census.gov/quickfacts/
+[6] http://www.elections.state.md.us/press_room/
 
 ## Set-up 
 
