@@ -62,7 +62,7 @@ We are using a number of libraries for this implementation. This includes:
 [26] https://stackoverflow.com/questions/9262827/twitter-bootstrap-onclick-event-on-buttons-radio <br />
 [27] https://developers.facebook.com/docs/plugins/share-button <br />
 [28] https://stackoverflow.com/questions/16463030/how-to-add-facebook-share-button-on-my-website <br />
-[29] https://stackoverflow.com/questions/14829040/facebook-sharer-popup-window/14829742#14829742 <br /
+[29] https://stackoverflow.com/questions/14829040/facebook-sharer-popup-window/14829742#14829742 <br />
 [30] https://developers.facebook.com/docs/sharing/web <br />
 [31] https://support.sharethis.com/hc/en-us/articles/218441477-How-to-Customize-which-URL-Text-and-IMG-to-Share <br />
 
