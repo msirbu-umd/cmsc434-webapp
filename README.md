@@ -12,6 +12,8 @@ Team 2 is composed of four seniors: Jay Zhang, Justin Miller, Cindy Ren, and Mih
 [3] You can get to the state page by either clicking on Maryland on the main map or by pointing your browser to http://localhost:8080/Maryland_statepage.html <br />
 [4] To get to the filtering page, you can click on Tools in the navbar or by pointing your browser to http://localhost:8080/filtering.html
 
+NOTE: If you have trouble seeing the colors on the filtering page, it may be due to an issue of permissions. Email Mihai at msirbu [at] terpmail.umd.edu and I will give you permission to the spreadsheet that stores the data. 
+
 ## Libraries used
 
 We are using a number of libraries for this implementation. This includes: 
