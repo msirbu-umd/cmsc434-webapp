@@ -1,6 +1,6 @@
 # Empowering The Voter: cmsc434-webapp
 
-This github repo implements the web app for Team 2's Empowering the Voter project for CSMC434. The purpose of this web app is to raise awareness about voter ID laws throughout the US. The two main tasks that this web app implements is "finding more info about voter ID laws in Maryland" and "sharing the Maryland state page with friends via email." Interactive maps built using highmaps is central to our design. We also implemented an additional state filtering tool. 
+This github repo implements the web app for Team 2's Empowering the Voter project for CSMC434. The purpose of this web app is to raise awareness about voter ID laws throughout the US. The two main tasks that this web app implements are _finding more info about voter ID laws in Maryland_ and _sharing the Maryland state page with friends via email._ Interactive maps built using highmaps is central to our design. We also implemented an additional state filtering tool. 
 
 Team 2 is composed of four seniors: Jay Zhang, Justin Miller, Cindy Ren, and Mihai Sirbu. Cindy and Mihai were in charge of the web app and worked on its implementation throughout all three versions.  
 
