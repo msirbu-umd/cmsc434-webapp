@@ -1,3 +1,9 @@
+/*
+This script is used to create the initial voter ID law map on the main
+landing page. To implement the map we used a third party library called
+highmaps. 
+*/
+
 $(function () {
 
     var data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']),
@@ -62,6 +68,7 @@ $(function () {
                 }
 
             },
+						//This allows the clicking to the Maryland state page to happen.
             series: {
                 cursor: 'pointer',
                 point: {
@@ -76,7 +83,8 @@ $(function () {
             }
         },
 
-
+				//The different states and the various voter ID requirements for each
+				//We give each a different color.
         series: [{
             name: 'No document required to vote',
             color: '#A1A1A1',
@@ -111,6 +119,7 @@ $(function () {
             })
         }]
     },function(chart) {
+							//This is used to center the legend on the page. 
 							var legWidth = this.legend.maxItemWidth; // width of legend
 							console.log(legWidth);
 							 $('.highcharts-legend-title').attr({

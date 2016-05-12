@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 
+<!--
+This code implements the main landing page for our web app. 
+-->
+
 <head>
     <link rel="stylesheet" type="text/css" href="cindy.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="mystyle.css">
@@ -20,6 +24,8 @@
 <script src="http://code.highcharts.com/mapdata/countries/us/us-tx-all.js"></script>
 
 
+<!-- This code is used for the navbar -->
+
 <div class="text-center">
     <div class="row">
         <nav class="navbar">
@@ -34,16 +40,6 @@
                             <li><a href="#">Page 1-2</a></li>
                         </ul>
                     </li>
-                    <!--
-<li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown">News
-        <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">Page 2-1</a></li>
-        <li><a href="#">Page 2-2</a></li>
-        <li><a href="#">Page 3-3</a></li>
-    </ul>
-</li>-->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Organizations
                             <span class="caret"></span></a>
@@ -57,22 +53,9 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="filtering.html">State Filtering Tool</a></li>
-                            <!--<li><a href="#">Page 4-2</a></li>
-                            <li><a href="#">Page 4-3</a></li>-->
                         </ul>
                     </li>
-                    <!--
-<li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown">Get Involved
-        <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-        <li><a href="http://www.w3schools.com/html/">Page 5-1</a></li>
-        <li><a href="#">Page 5-2</a></li>
-        <li><a href="#">Page 5-3</a></li>
-        <li><a href="#">Page 5-4</a></li>
-    </ul>
-</li>-->
-                    <li><a href="#" class="ND">About</a></li>
+										<li><a href="#" class="ND">About</a></li>
                 </ul>
             </div>
         </nav>
@@ -81,6 +64,7 @@
 </div>
 
 
+<!-- This script is used to load the voter ID map the first time through -->
 <script src="usa_voterID_map.js"></script>
 <div id="container" style="height: 700px; min-width: 310px; max-width: 800px; margin: 0 auto">
 </div>
@@ -93,6 +77,12 @@
 </div>
 
 <script>
+
+		/**
+			The code here is used to detect when the user changes the map on the screen 
+			(two options voter ID laws and voter turnout 2014). 
+			To create the map we used a third party tool called highmaps.js
+		*/
     $( document ).ready(function(){
 
         $("#voterID").click(function(){
@@ -154,6 +144,7 @@
                         }
 
                     },
+										//This allows the clicking to the Maryland state page to happen. 
                     series: {
                         cursor: 'pointer',
                         point: {
@@ -166,6 +157,8 @@
                         }
                     }
                 },
+								//The different states and the various voter ID requirements for each
+								//We give each a different color. 
                 series : [{
                     name: 'No document required to vote',
                     color: '#A1A1A1',
@@ -200,6 +193,7 @@
                     })
                 }]
             },function(chart) {
+							//This is used to center the legend on the page. 
 							var legWidth = this.legend.maxItemWidth; // width of legend
 							console.log(legWidth);
 							 $('.highcharts-legend-title').attr({
@@ -209,6 +203,11 @@
 						});
         });
 
+				/**
+					The code below is used to display the 2014 voter turnout map on the page
+					It is displayed when the user clicks the Voter Turnout button the screen
+					Like the other map, this uses highmaps to implement the interactive map. 
+				*/
         $("#VT2014").click(function(){
             Highcharts.data({
 
@@ -295,6 +294,7 @@
                                     name: '% Voter Turnout',
                                     point: {
                                         events: {
+																						//Allows the user to click on MD to get to the Maryland state page. 
                                             click: function () {
                                                 //console.log(this);
                                                 //console.log(this.name);
